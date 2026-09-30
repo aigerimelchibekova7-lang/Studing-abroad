@@ -20,7 +20,7 @@ const univer = [
     {
         conutry:"Италия",
         description:"Культура и образование",
-        Image:"/Italia.jpeg",
+        Image:"/italia.jpg",
     },
     {
         conutry:"Турция",
