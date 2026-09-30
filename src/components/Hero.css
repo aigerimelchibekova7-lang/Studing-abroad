@@ -57,8 +57,8 @@
   text-decoration: none;
 }
 .btn:hover{
-  transform: translateY(-5x);
-  transition: 0.3s;
+  transform: translateY(-6x);
+  transition: 0.5s;
 }
 
 .stats{
