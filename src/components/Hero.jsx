@@ -11,7 +11,7 @@ const Hero = () => {
         <h1>Учеба за границей - <br /> твой путь к новым возможностям</h1>
         <p className='text'>Найти подходящую страну и университет , получи образование мечты и начни строить свое будущее.</p>
     <div className='buttons'>
-        <Link to="/Universities" className='btn'>Выбрать университет →</Link>
+        <Link to="/Universities" className='btn'>Выбрать университет</Link>
     </div>
     <div className='stats'>
         <div className='stat'>

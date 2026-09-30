@@ -81,7 +81,7 @@ function About() {
             <h2>Готовы сделать первый шаг?</h2>
             <p>Оставьте заявку на консультацию — мы подберём для вас лучший вариант обучения за границей.</p>
           </div>
-          <Link to="/contact" className="btn"> Получить консультацию</Link>
+          <Link to="/contact" className="btn"> <button>Получить консультацию</button></Link>
 
         </div>
       </section>

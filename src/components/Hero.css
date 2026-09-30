@@ -44,21 +44,20 @@
   display: flex;
   align-items: center;
   gap: 25px;
-}
+} 
 
-.btn {
-  background-color: #2457a6;
-  color: white;
-  border: none;
-  padding: 16px 28px;
-  border-radius: 30px;
-  font-size: 15px;
-  /* cursor: pointer; */
+.btn{
   text-decoration: none;
+  border: 2px solid  #2457a6;
+  background-color:  #2457a6;
+  border-radius: 16px;
+  color: white;
+  padding: 10px 14px;
 }
 .btn:hover{
-  transform: translateY(-6x);
+  transform: translateY(-4px);
   transition: 0.5s;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
 }
 
 .stats{
@@ -85,6 +84,5 @@
 .image img {
   width: 420px;
   height: 500px;
-  /* object-fit: cover; */
   border-radius: 50%;
 }

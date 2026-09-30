@@ -3,34 +3,34 @@ import "./PopUniver.css"
 
 const univer = [
     {
-        conutry:"Саудская Арабия",
+        country:"Саудская Арабия",
         description:"Совроменные университеты",
         image:"/Arabia.jpeg",
     },
     {
-        conutry:"Южная Корея",
+        country:"Южная Корея",
         description:"Технологии и инновации",
         image:"/Korea.jpeg",
     },
     {
-        conutry:"Германия",
+        country:"Германия",
         description:"Качество и перспективы",
         image:"/Germany.jpeg",
     },
     {
-        conutry:"Италия",
-        description:"Культура и образование",
-        Image:"/italia.jpg",
-    },
-    {
-        conutry:"Турция",
+        country:"Турция",
         description:"Доступное образование",
         image:"/Turkey.jpeg",
     },
     {
-        conutry:"Китай",
+        country:"Китай",
         description:"Технологии и возможности",
         image:"/Kitai.jpeg",
+    },
+    {
+        country:"Италия",
+        description:"Культура и образование",
+        Image:"/Italia.jpeg",
     },
 ]
 function PopUniver () {
@@ -47,7 +47,7 @@ function PopUniver () {
                 <div className='country-card' key={index}>
                     <img src={item.image} alt={item.univer} />
                     <div className='country-info'>
-                        <h3>{item.univer}</h3>
+                        <h3>{item.country}</h3>
                         <p>{item.description}</p>
                     </div>
                 </div>
