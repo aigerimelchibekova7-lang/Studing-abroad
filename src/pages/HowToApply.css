@@ -106,12 +106,12 @@
   left: 8%;
   right: 8%;
   height: 1px;
-  background: #c2dfe9;
+  background-color: #c2dfe9;
   z-index: 0;
 }
 
 .step-card {
-  background: white;
+  background-color: white;
   padding: 25px 20px;
   border-radius: 20px;
   min-height: 180px;

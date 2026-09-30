@@ -130,7 +130,6 @@
   width: 45px;
   height: 45px;
   flex-shrink: 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -203,7 +202,7 @@
 .form-group select:focus,
 .form-group textarea:focus {
   border-color: #7faebb;
-  background: white;
+  background-color: white;
   box-shadow: 0 0 0 3px rgba(127, 174, 187, 0.12);
 }
 
@@ -214,7 +213,7 @@
 
 .contact-form button {
   border: none;
-  background: #133845;
+  background-color: #133845;
   color: white;
   padding: 14px 24px;
   border-radius: 12px;
@@ -225,7 +224,7 @@
 }
 
 .contact-form button:hover {
-  background: #1d5264;
+  background-color: #1d5264;
   transform: translateY(-2px);
   box-shadow: 0 6px 15px rgba(19, 56, 69, 0.2);
 }
@@ -233,7 +232,7 @@
 .success-message {
   margin-top: 20px;
   padding: 15px 18px;
-  background: #e7f5ec;
+  background-color: #e7f5ec;
   color: #267044;
   border-radius: 12px;
   font-size: 14px;

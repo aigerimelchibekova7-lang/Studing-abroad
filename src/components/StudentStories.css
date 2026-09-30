@@ -1,6 +1,6 @@
 .student {
   padding: 80px 0;
-  background: #f5f8f9;
+  background-color: #f5f8f9;
 }
 
 .student-container {
@@ -52,7 +52,7 @@
 }
 
 .story-card:hover {
-  transform: translateY(-7px);
+  transform: translateY(-6px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 }
 

@@ -19,7 +19,7 @@
 .countries-hero span {
   display: inline-block;
   padding: 4px 8px;
-  background: #dcecfb;
+  background-color: #dcecfb;
   border-radius: 30px;
   color: #123b5d;
   font-size: 13px;
@@ -56,7 +56,7 @@
 .countries-card {
   position: relative;
   padding: 30px;
-  background: white;
+  background-color: white;
   border-radius: 25px;
   border: 1px solid #e2edf1;
   box-shadow: 0 10px 35px rgba(30, 70, 90, 0.08);
@@ -74,7 +74,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #edf7fa;
+  background-color: #edf7fa;
   border-radius: 18px;
   font-size: 35px;
   margin-bottom: 20px;
@@ -140,8 +140,6 @@
 
 .countries-modal {
   position: relative;
-  /* width: 520px; */
-  /* max-width: 100%; */
   padding: 45px;
   background: white;
   border-radius: 30px;
@@ -178,11 +176,6 @@
 .modal-close:hover {
   background: #dcecf2;
 }
-
-/* .modal-flag {
-  font-size: 55px;
-  margin-bottom: 10px;
-} */
 
 .countries-modal h2 {
   margin: 0 0 15px;

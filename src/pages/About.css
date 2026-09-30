@@ -26,7 +26,7 @@
 .about-hero span {
   display: inline-block;
   padding: 8px 16px;
-  background: #e1effb;
+  background-color: #e1effb;
   color: #1462a5;
   border-radius: 20px;
   font-size: 14px;
@@ -52,14 +52,14 @@
   padding: 14px 25px;
   border: none;
   border-radius: 25px;
-  background: #1167b1;
+  background-color: #1167b1;
   color: white;
   font-size: 15px;
   cursor: pointer;
 }
 
 .about-hero button:hover {
-  background: #0b5594;
+  background-color: #0b5594;
 }
 
 .about-hero img {
@@ -157,7 +157,7 @@
 .results > span {
   display: inline-block;
   padding: 8px 15px;
-  background: #e1effb;
+  background-color: #e1effb;
   color: #1462a5;
   border-radius: 20px;
   font-size: 14px;
@@ -202,7 +202,7 @@
   font-size: 13px;
 }
 .about-ct{
-    background: #e9f4fc;   
+    background-color: #e9f4fc;   
     border-radius: 25px;
 }
 .about-cta {
@@ -233,12 +233,12 @@
   padding: 14px 28px;
   border: none;
   border-radius: 25px;
-  background: #1167b1;
+  background-color: #1167b1;
   color: white;
   font-size: 15px;
   cursor: pointer;
 }
 
 .about-cta button:hover {
-  background: #0b5594;
+  background-color: #0b5594;
 }

@@ -53,6 +53,7 @@
   font-size: 14px;
   font-weight: 500;
   transition: 0.3s;
+  font-size: 17px;
 }
 
 .links a:hover {
@@ -64,9 +65,9 @@
   position: absolute;
   left: 0;
   bottom: -7px;
-  width: 0;
+  /* width: 0; */
   height: 2px;
-  background: #1769aa;
+  background-color: #1769aa;
   transition: 0.3s;
 }
 
@@ -86,7 +87,7 @@
   align-items: center;
   gap: 12px;
   padding: 12px 18px;
-  background: #1769aa;
+  background-color: #1769aa;
   color: white;
   border-radius: 30px;
   text-decoration: none;
