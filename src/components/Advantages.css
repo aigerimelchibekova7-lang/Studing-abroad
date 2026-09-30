@@ -1,0 +1,47 @@
+.advantage{
+    background-color:#f7fbfb;
+}
+
+.advantages{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px;
+}
+
+title p{
+     color: #2457a6;
+     font-size: 14px;
+     letter-spacing: 2px;
+     margin-bottom: 15px;
+}
+.title h2{
+    font-size: 38px;
+    line-height: 1.2;
+    color: #172b4d;
+    margin-bottom: 45px;
+}
+.cards{
+    display: flex;
+    gap: 25px;
+}
+.card{
+    flex: 1;
+    padding: 30px;
+    border: 1px solid #e1e5ec;
+    border-radius: 20px;
+    background-color: white;
+}
+.icon{
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+.card h3{
+    color: #172b4d;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+.card p{
+    color: #667085;
+    font-size: 15px;
+    line-height: 1.6;
+}

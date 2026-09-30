@@ -1,0 +1,88 @@
+.student {
+  padding: 80px 0;
+  background: #f5f8f9;
+}
+
+.student-container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.heading span {
+  display: inline-block;
+  padding: 8px 18px;
+  color: rgb(19, 56, 69);
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.heading h2 {
+  margin: 15px 0 12px;
+  font-size: 34px;
+  color: rgb(19, 56, 69);
+}
+
+.heading p {
+  max-width: 650px;
+  margin: 0 auto;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #65747a;
+}
+
+.student-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.story-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+}
+
+.story-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.story-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+.story {
+  padding: 22px;
+}
+
+.story h3 {
+  margin: 0 0 8px;
+  font-size: 22px;
+  color: rgb(19, 56, 69);
+}
+
+.story-country {
+  margin: 0 0 15px;
+  color: #477789;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.story-text {
+  margin: 0;
+  color: #68777d;
+  font-size: 14px;
+  line-height: 1.6;
+}

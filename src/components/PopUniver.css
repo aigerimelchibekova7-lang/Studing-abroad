@@ -1,0 +1,87 @@
+.popuniver{
+    padding: 80px 0;
+    background-color:#f7fbfb;
+}
+.popuniver-container{
+    width: 1200px;
+    margin: 0 auto;
+}
+.popuniver-name{
+    margin-bottom: 35px;
+}
+.popuniver-name span{
+    color: #1769aa;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+.popuniver-name h1{
+    margin: 15px 0 8px;
+    color:#123b5d;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 42px;
+}
+.popuniver-name p{
+    color: #718797;
+    font-size: 16px;
+}
+.country-grid{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    gap: 18px;
+}
+.country-card{
+    background-color: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(25, 70, 100, 0.08);
+    transition: 0.3s;
+}
+.country-card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(25, 70, 100, 0.15);
+}
+.country-card img{
+    width: 100%;
+    height: 145px;
+    object-fit: cover;
+    display: block;
+}
+.country-info{
+    position: relative;
+    padding: 16px;
+    min-height: 115px;
+}
+.country-info h3{
+    margin: 0 0 10px;
+    color: #1769aa;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 17px;
+}
+.country-info p{
+    margin: 0;
+    max-width: 125px;
+    color: #718797;
+    font-size: 14px;
+    line-height: 1.4;
+}
+.country-info button{
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background-color:#eef7fb;
+    color: #1769aa;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    
+}
+.country-info button:hover{
+    background-color: #1769aa;
+    color: white;
+}
