@@ -30,7 +30,7 @@ const univer = [
     {
         country:"Италия",
         description:"Культура и образование",
-        Image:"/Italia.jpeg",
+        image:"/Italia.jpeg",
     },
 ]
 function PopUniver () {

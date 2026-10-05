@@ -6,7 +6,6 @@ const Header = () => {
   return (
     <header className="header">
       <div className="head container">
-
         <Link to="/" className='logo'>
           EDIVIA
           <small>EDUCATION • FUTURE</small>
