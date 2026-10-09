@@ -33,8 +33,6 @@ const Footer = () => {
         <div className="footer-bottom">
           <p>© 2026 EDIVIA. Все права защищены.</p>
           <div className="footer-socials">
-            <a href="#">Instagram</a>
-            <a href="#">Telegram</a>
           </div>
         </div>
       </div>

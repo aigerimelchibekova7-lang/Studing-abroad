@@ -67,13 +67,3 @@
   display: flex;
   gap: 25px;
 }
-
-.footer-socials a {
-  color: #b9cedb;
-  text-decoration: none;
-  font-size: 13px;
-  transition: 0.3s;
-}
-.footer-socials a:hover {
-  color: white;
-}

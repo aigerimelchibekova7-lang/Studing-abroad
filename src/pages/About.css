@@ -48,20 +48,19 @@
 }
 
 .about-hero button {
-  margin-top: 20px;
+  margin-top: 25px;
   padding: 14px 25px;
   border: none;
   border-radius: 25px;
-  background-color: #1167b1;
+  background: #1167b1;
   color: white;
   font-size: 15px;
   cursor: pointer;
 }
 
 .about-hero button:hover {
-  background-color: #0b5594;
+  background: #0b5594;
 }
-
 .about-hero img {
   width: 480px;
   height: 320px;
@@ -233,12 +232,12 @@
   padding: 14px 28px;
   border: none;
   border-radius: 25px;
-  background-color: #1167b1;
+  background: #1167b1;
   color: white;
   font-size: 15px;
   cursor: pointer;
 }
 
 .about-cta button:hover {
-  background-color: #0b5594;
+  background: #0b5594;
 }

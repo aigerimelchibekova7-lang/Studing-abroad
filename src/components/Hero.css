@@ -46,18 +46,17 @@
   gap: 25px;
 } 
 
-.btn{
-  text-decoration: none;
-  border: 2px solid  #2457a6;
-  background-color:  #2457a6;
-  border-radius: 16px;
+.buttons button{
+  padding: 14px 28px;
+  border: none;
+  border-radius: 25px;
+  background: #1167b1;
   color: white;
-  padding: 10px 14px;
+  font-size: 15px;
+  cursor: pointer;
 }
-.btn:hover{
-  transform: translateY(-4px);
-  transition: 0.5s;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+.buttons button:hover{
+  background: #0b5594;
 }
 
 .stats{

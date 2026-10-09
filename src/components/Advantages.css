@@ -45,3 +45,8 @@ title p{
     font-size: 15px;
     line-height: 1.6;
 }
+.card:hover{
+  background: #fafbfb;
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}

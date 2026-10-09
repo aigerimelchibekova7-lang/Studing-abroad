@@ -11,7 +11,7 @@ function About() {
             <span>О нас</span>
             <h1>EDIVIA — ваш надежный<br />партнёр в мире образования</h1>
             <p>Мы помогаем студентам поступить в зарубежные учебные заведения и реализовать мечту об обучении за границей.</p>
-            <Link to="/contact" className="why-btn"><button>Получить консультацию</button> </Link>
+            <Link to="/contact"><button>Получить консультацию</button></Link>
           </div>
           <img src="/Cambridge.jpg" alt="" />
         </div>
@@ -81,7 +81,7 @@ function About() {
             <h2>Готовы сделать первый шаг?</h2>
             <p>Оставьте заявку на консультацию — мы подберём для вас лучший вариант обучения за границей.</p>
           </div>
-          <Link to="/contact" className="btn"> <button>Получить консультацию</button></Link>
+          <Link to="/contact"><button>Получить консультацию</button></Link>
 
         </div>
       </section>
