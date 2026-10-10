@@ -33,14 +33,9 @@ return (
        console.log("Нажали:", university.name);
      onDetails(university);
      }}
-    >
-      Подробнее
-    </button>
-
+    >Подробнее</button>
   </div>
-
 </div>
-
 );
 };
 
