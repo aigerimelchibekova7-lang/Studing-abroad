@@ -47,7 +47,7 @@ const handleSubmit = async (e) => {
 
   return (
     <section className="contact-page">
-      <div className="contact-hero">
+      {/* <div className="contact-hero">
         <div className="contact-hero-text">
           <span>КОНТАКТЫ</span>
           <h1>Свяжитесь с нами</h1>
@@ -60,7 +60,7 @@ const handleSubmit = async (e) => {
         <div className="contact-hero-image">
           <img src="/Concantfoto.jpeg" alt="" />
         </div>
-      </div>
+      </div> */}
       <div className="contact-content">
         <div className="contact-info">
           <h2>Наши контакты</h2>
@@ -78,7 +78,6 @@ const handleSubmit = async (e) => {
               <p>info@edivia.com</p>
             </div>
           </div>
-
           <div className="info-item">
             <span>📍</span>
             <div>
@@ -92,7 +91,7 @@ const handleSubmit = async (e) => {
             <div>
               <h4>Время работы</h4>
               <p>Пн – Пт: 09:00 – 18:00</p>
-              <p>Сб – Вс: по предварительной записи</p>
+              <p>Сб – Вс: выходной</p>
             </div>
           </div>
          </div>       
