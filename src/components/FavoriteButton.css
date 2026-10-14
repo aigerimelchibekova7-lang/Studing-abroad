@@ -1,0 +1,26 @@
+
+.favorite-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid #e5e7eb;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #6b7280;
+  font-size: 25px;
+  cursor: pointer;
+  transition: transform 0.2s ease,
+color 0.2s ease,background 0.2s ease;
+}
+
+.favorite-toggle:hover {
+  transform: scale(1.08);
+}
+
+.favorite-toggle.active {
+  color: #e54864;
+  background: #fff0f3;
+  border-color: #ffc6d0;
+}

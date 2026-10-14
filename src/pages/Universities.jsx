@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import UniversityCard from "../components/UniversityCard";
+import FavoriteButton from "../components/FavoriteButton";
 import "./Universities.css"
 
 const universities = [
@@ -430,8 +431,6 @@ duration:"Обычно 4 года для программ бакалавриат
     "Личные расходы"
   ]
 },
-
-// 🇨🇳 КИТАЙ
 {
 name: "Tsinghua University",
 country: "Китай",
@@ -543,13 +542,33 @@ return (
   </div>
   <div className="universities-grid">
     {filteredUniversities.map((university) => (
-      <UniversityCard
-        key={university.name}
-        university={university}
-        onDetails={(university) =>
-          setSelectedUniversity(university)
-        }
-      />
+<div className="university-card-wrapper" key={university.name}>
+  <FavoriteButton
+    item={{
+      id: `university-${university.name}`,
+      type: "university",
+      name: university.name,
+      country: university.country,
+      flag: university.flag,
+      city: university.city,
+      image: university.image,
+      description: university.description,
+      fields: university.fields,
+      tuition: university.tuition,
+      accommodation: university.accommodation,
+      language: university.language,
+      duration: university.duration,
+    }}
+  />
+
+  <UniversityCard
+    university={university}
+    onDetails={(university) =>
+      setSelectedUniversity(university)
+    }
+  />
+</div>
+
     ))}
   </div>
   {selectedUniversity && (

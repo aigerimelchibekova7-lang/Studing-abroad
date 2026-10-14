@@ -16,6 +16,8 @@ const Header = () => {
           <Link to="/universities">Университеты</Link>
           <Link to="/contact">Контакты</Link>
           <Link to="/about">О нас</Link>
+          <Link to="/favorites" className="favorites-link">
+            ♡ Избранное</Link>
         </nav>
         <div className="header-right">
           <a href="/how-to-apply" className="how-btn">

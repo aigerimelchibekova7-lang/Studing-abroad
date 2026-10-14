@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FavoriteButton from "../components/FavoriteButton";
 import "./Countries.css";
 
 const Countries = () => {
@@ -71,10 +72,23 @@ const Countries = () => {
       <section className="countries-section">
         <div className="countries-grid">
           {countries.map((country) => (
-            <div className="countries-card" key={country.id}>
-              <div className="countries-flag">
-                {country.flag}
-              </div>
+            <div className="countries-card" key={country.id}>            
+          <div className="countries-card-top">
+        <div className="countries-flag">
+      {country.flag}
+    </div>
+    <FavoriteButton
+      item={{
+        id: `country-${country.id}`,
+        type: "country",
+        name: country.name,
+        flag: country.flag,
+        description: country.description,
+        directions: country.directions,
+        cost: country.cost,
+      }}
+        />
+          </div>
               <h2>{country.name}</h2>
               <p>{country.description}</p>
               <div className="countries-directions">
@@ -87,13 +101,11 @@ const Countries = () => {
               <button
                 className="details-btn"
                 onClick={() => setSelectedCountry(country)}
-              >
-                Подробнее 
-              </button>
+              > Подробнее </button>
             </div>
           ))}
         </div>
-      </section>
+        </section>
       {selectedCountry && (
      <div className="modal"
           onClick={() => setSelectedCountry(null)}

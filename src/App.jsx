@@ -1,4 +1,5 @@
 import React from 'react'
+import Favorites from "./pages/Favorites";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
@@ -23,6 +24,7 @@ function App() {
         <Route path="/how-to-apply" element={<HowToApply />} />
         {/* <Route path="/HowToApply" element={<HowToApply />} /> */}
         <Route path="/contact" element={<Contact />} />
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
       <Footer/> 
     </BrowserRouter>
