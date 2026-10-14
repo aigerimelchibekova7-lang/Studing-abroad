@@ -1,5 +1,4 @@
 import React from 'react'
-import Favorites from "./pages/Favorites";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
@@ -10,6 +9,7 @@ import HowToApply from "./pages/HowToApply";
 import Contact from "./pages/Contact";
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Favorites from "./pages/Favorites";
 
 function App() {
   return (
