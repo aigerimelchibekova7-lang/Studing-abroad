@@ -2,9 +2,11 @@ const STORAGE_KEY = "edivia-favorites";
 
 export function getFavorites() {
   try {
-    return JSON.parse(
+    const data = JSON.parse(
       localStorage.getItem(STORAGE_KEY) || "[]"
     );
+
+    return Array.isArray(data) ? data : [];
   } catch {
     return [];
   }
@@ -12,7 +14,7 @@ export function getFavorites() {
 
 export function isFavorite(id) {
   return getFavorites().some(
-    (item) => item.id === id
+    (item) => String(item.id) === String(id)
   );
 }
 
@@ -20,12 +22,14 @@ export function toggleFavorite(item) {
   const favorites = getFavorites();
 
   const exists = favorites.some(
-    (favorite) => favorite.id === item.id
+    (favorite) =>
+      String(favorite.id) === String(item.id)
   );
 
   const updated = exists
     ? favorites.filter(
-        (favorite) => favorite.id !== item.id
+        (favorite) =>
+          String(favorite.id) !== String(item.id)
       )
     : [...favorites, item];
 

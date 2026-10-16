@@ -10,6 +10,7 @@ import Contact from "./pages/Contact";
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Favorites from "./pages/Favorites";
+import UniversityDetails from "./pages/UniversityDetails";
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
         <Route path="/how-to-apply" element={<HowToApply />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/favorites" element={<Favorites />} />
+        <Route path="/universities/:slug" element={<UniversityDetails />}
+      />
       </Routes>
       <Footer/> 
     </BrowserRouter>
