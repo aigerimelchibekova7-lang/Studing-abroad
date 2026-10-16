@@ -22,7 +22,6 @@ function App() {
         <Route path="/countries" element={<Countries />} />
         <Route path="/universities" element={<Universities />} />
         <Route path="/how-to-apply" element={<HowToApply />} />
-        {/* <Route path="/HowToApply" element={<HowToApply />} /> */}
         <Route path="/contact" element={<Contact />} />
         <Route path="/favorites" element={<Favorites />} />
       </Routes>

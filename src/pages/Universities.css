@@ -322,3 +322,30 @@
   color: white;
   transform: rotate(5deg);
 }
+
+.university-card-wrapper {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+
+.university-card {
+  width: 100%;
+  position: relative;
+}
+
+.university-image {
+  position: relative;
+}
+
+.universities-grid .university-card-wrapper {
+  position: relative;
+  min-width: 0;
+}
+
+.universities-grid .university-card-wrapper > .favorite-toggle {
+  position: absolute;
+  top: 290px;
+  left: 320px;
+  z-index: 20;
+}

@@ -1,9 +1,6 @@
 
 import { useEffect, useState } from "react";
-import {
-  getFavorites,
-  toggleFavorite,
-} from "../utils/favorites";
+import { getFavorites, toggleFavorite } from "../utils/Favorites";
 import "./FavoriteButton.css";
 
 export default function FavoriteButton({ item }) {

@@ -106,6 +106,7 @@
   background: #fff0f3;
   color: #e54864 !important;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .favorites-link:hover {

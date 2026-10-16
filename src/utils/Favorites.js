@@ -1,4 +1,3 @@
-
 const STORAGE_KEY = "edivia-favorites";
 
 export function getFavorites() {
