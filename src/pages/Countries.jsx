@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import FavoriteButton from "../components/FavoriteButton";
 import "./Countries.css";
 
 const Countries = () => {
@@ -77,17 +76,6 @@ const Countries = () => {
         <div className="countries-flag">
       {country.flag}
     </div>
-    <FavoriteButton
-      item={{
-        id: `country-${country.id}`,
-        type: "country",
-        name: country.name,
-        flag: country.flag,
-        description: country.description,
-        directions: country.directions,
-        cost: country.cost,
-      }}
-        />
           </div>
               <h2>{country.name}</h2>
               <p>{country.description}</p>

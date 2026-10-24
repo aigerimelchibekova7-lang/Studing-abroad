@@ -1,0 +1,155 @@
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f5f7fc;
+  color: #172554;
+}
+
+.admin-sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 18px 20px;
+  background: #ffffff;
+  border-right: 1px solid #e8ecf5;
+}
+
+.admin-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 10px 32px;
+  border-bottom: 1px solid #edf0f7;
+}
+
+.admin-logo-icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #233eab, #6878f5);
+  color: white;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.admin-logo h2 {
+  margin: 0 0 4px;
+  font-size: 22px;
+  letter-spacing: 2px;
+}
+
+.admin-logo span {
+  color: #8490a8;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.sidebar-section-title {
+  margin: 30px 12px 14px;
+  color: #9aa4b8;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.admin-navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.admin-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 14px 15px;
+  border-radius: 12px;
+  color: #718096;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.admin-nav-link:hover {
+  background: #f2f5ff;
+  color: #3454c5;
+}
+
+.admin-nav-link.active {
+  color: #ffffff;
+  background: linear-gradient(110deg, #304fca, #6878f5);
+  box-shadow: 0 7px 18px rgba(67, 91, 210, 0.2);
+}
+
+.nav-icon {
+  width: 22px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+  padding-top: 25px;
+}
+
+.admin-profile {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 15px 8px;
+  border-top: 1px solid #edf0f7;
+}
+
+.profile-avatar {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 13px;
+  background: #e8edff;
+  color: #3454c5;
+  font-weight: 800;
+}
+
+.admin-profile strong,
+.admin-profile span {
+  display: block;
+}
+
+.admin-profile strong {
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+
+.admin-profile span {
+  color: #8490a8;
+  font-size: 10px;
+}
+
+.back-to-site {
+  display: block;
+  padding: 13px;
+  border-radius: 11px;
+  background: #f5f7fc;
+  color: #52617b;
+  text-align: center;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.back-to-site:hover {
+  background: #e9edff;
+  color: #3454c5;
+}
+
+.admin-main {
+  flex: 1;
+  min-width: 0;
+}
