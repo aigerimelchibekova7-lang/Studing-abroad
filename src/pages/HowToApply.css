@@ -1,8 +1,11 @@
 .how-page {
   padding: 70px 0;
-  background: #f5f8fa;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
+/* HERO SECTION */
 .how-hero {
   width: 1200px;
   margin: 0 auto 70px;
@@ -18,7 +21,8 @@
 }
 
 .how-label {
-  color: #52727e;
+  color: var(--text-color);
+  opacity: 0.75;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 2px;
@@ -28,14 +32,15 @@
 .how-text h1 {
   font-size: 52px;
   line-height: 1.1;
-  color: #133845;
+  color: var(--text-color);
   margin: 0 0 20px;
 }
 
 .how-text p {
   font-size: 17px;
   line-height: 1.6;
-  color: #53676e;
+  color: var(--text-color);
+  opacity: 0.8;
   max-width: 520px;
 }
 
@@ -44,7 +49,7 @@
   padding: 14px 22px;
   border: none;
   border-radius: 14px;
-  background: #133845;
+  background: #1769aa;
   color: white;
   font-size: 15px;
   cursor: pointer;
@@ -54,9 +59,11 @@
 
 .how-button:hover {
   transform: translateY(-3px);
+  background: #12558b;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
 }
 
+/* HERO IMAGE */
 .how-image {
   width: 45%;
 }
@@ -69,6 +76,7 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
+/* STEPS SECTION */
 .steps-section {
   width: 1200px;
   margin: 0 auto 80px;
@@ -80,13 +88,14 @@
 }
 
 .steps-title span {
-  color: #52727e;
+  color: var(--text-color);
+  opacity: 0.75;
   font-size: 13px;
   letter-spacing: 2px;
 }
 
 .steps-title h2 {
-  color: #133845;
+  color: var(--text-color);
   font-size: 34px;
   margin-top: 10px;
 }
@@ -105,13 +114,16 @@
   left: 8%;
   right: 8%;
   height: 1px;
-  background-color: #c2dfe9;
+  background-color: var(--border-color);
   z-index: 0;
 }
 
+/* STEP CARD */
 .step-card {
-  background-color: white;
+  background-color: var(--card-color);
+  color: var(--text-color);
   padding: 25px 20px;
+  border: 1px solid var(--border-color);
   border-radius: 20px;
   min-height: 180px;
   box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
@@ -131,7 +143,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #133845;
+  background-color: #1769aa;
   color: white;
   border-radius: 50%;
   font-size: 12px;
@@ -139,17 +151,19 @@
 }
 
 .step-card h3 {
-  color: #133845;
+  color: var(--text-color);
   font-size: 18px;
   margin: 20px 0 10px;
 }
 
 .step-card p {
-  color: #687a80;
+  color: var(--text-color);
+  opacity: 0.75;
   font-size: 14px;
   line-height: 1.5;
 }
 
+/* DOCUMENTS SECTION */
 .documents-section {
   width: 1200px;
   margin: 0 auto 80px;
@@ -160,17 +174,19 @@
 }
 
 .documents-title span {
-  color: #52727e;
+  color: var(--text-color);
+  opacity: 0.75;
   font-size: 13px;
   letter-spacing: 2px;
 }
 
 .documents-title h2 {
-  color: #133845;
+  color: var(--text-color);
   font-size: 34px;
   margin-top: 10px;
 }
 
+/* DOCUMENT CARDS */
 .documents {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -178,14 +194,16 @@
 }
 
 .document-card {
-  background-color: #e9f0f3;
+  background-color: var(--card-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
   padding: 25px;
   border-radius: 18px;
   transition: 0.3s;
 }
 
 .document-card:hover {
-  background: #dce9ed;
+  background: var(--border-color);
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
@@ -195,38 +213,44 @@
 }
 
 .document-card h3 {
-  color: #133845;
+  color: var(--text-color);
   margin: 15px 0 8px;
   font-size: 18px;
 }
 
 .document-card p {
-  color: #64777d;
+  color: var(--text-color);
+  opacity: 0.75;
   font-size: 14px;
   line-height: 1.5;
 }
 
+/* CONSULTATION SECTION */
 .consultation {
   width: 1200px;
   margin: 0 auto;
   padding: 50px;
-  background-color: #c2dfe9;
+  background-color: var(--card-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
   border-radius: 25px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 30px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .consultation h2 {
-  color: #133845;
+  color: var(--text-color);
   font-size: 32px;
   margin: 0 0 12px;
 }
 
 .consultation p {
-  color: #365864;
+  color: var(--text-color);
+  opacity: 0.8;
   line-height: 1.5;
   max-width: 600px;
 }
@@ -235,7 +259,7 @@
   padding: 14px 22px;
   border: none;
   border-radius: 14px;
-  background-color: #133845;
+  background-color: #1769aa;
   color: white;
   font-size: 15px;
   cursor: pointer;
@@ -246,5 +270,6 @@
 
 .consultation-button:hover {
   transform: translateY(-3px);
+  background-color: #12558b;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
 }

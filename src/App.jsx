@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import "./App.css"
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -16,6 +17,8 @@ import AdminLayout from "./admin/AdminLayout";
 import AdminMessages from "./admin/AdminMessages";
 import AdminUniversities from "./admin/AdminUniversities";
 import AdminCountries from "./admin/AdminCountries";
+import { LanguageProvider } from "./components/LanguageContext"
+import { ThemeProvider } from "./components/ThemeContext";
 
 function AppContent() {
   const location = useLocation();
@@ -53,9 +56,13 @@ function AppContent() {
 
 function App() {
   return (
-    <BrowserRouter>
+   <ThemeProvider>
+     <LanguageProvider>
+      <BrowserRouter>
       <AppContent />
     </BrowserRouter>
+    </LanguageProvider>
+   </ThemeProvider>
   );
 }
 

@@ -1,0 +1,19 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #133845;
+  --card-color: #f5f8fa;
+  --border-color: #d9e1e5;
+}
+
+:root[data-theme="dark"] {
+  --bg-color: #101820;
+  --text-color: #f1f5f9;
+  --card-color: #1b2833;
+  --border-color: #344451;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}

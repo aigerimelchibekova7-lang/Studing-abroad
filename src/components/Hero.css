@@ -1,6 +1,8 @@
-.heros{
-  background-color:#f7fbfb;
-  
+/* HERO SECTION */
+.heros {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .hero {
@@ -28,14 +30,16 @@
 .hero h1 {
   font-size: 52px;
   line-height: 1.15;
-  color: #172b4d;
+  color: var(--text-color);
   margin-bottom: 25px;
+  transition: color 0.3s ease;
 }
 
 .text {
   font-size: 18px;
   line-height: 1.6;
-  color: #667085;
+  color: var(--text-color);
+  opacity: 0.75;
   max-width: 500px;
   margin-bottom: 35px;
 }
@@ -44,44 +48,54 @@
   display: flex;
   align-items: center;
   gap: 25px;
-} 
+}
 
-.buttons button{
+.buttons button {
   padding: 14px 28px;
   border: none;
   border-radius: 25px;
   background: #1167b1;
-  color: white;
+  color: #ffffff;
   font-size: 15px;
   cursor: pointer;
-}
-.buttons button:hover{
-  background: #0b5594;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.stats{
-    display: flex;
-    gap: 40px;
-    margin-top: 45px;
+.buttons button:hover {
+  background: #0b5594;
+  transform: translateY(-2px);
 }
-.stat h3{
-    font-size: 28px;
-    color: #2457a6;
-    margin-bottom: 5px;
+
+.stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 45px;
 }
-.stat p{
-    font-size: 14px;
-    color: #667085;
-}
-.stat{
+
+.stat {
   padding-right: 40px;
-  border-right: 1px solid #d9dee8;
+  border-right: 1px solid var(--border-color);
 }
-.stat:last-child{
+
+.stat:last-child {
   border-right: none;
 }
+
+.stat h3 {
+  font-size: 28px;
+  color: #2457a6;
+  margin-bottom: 5px;
+}
+
+.stat p {
+  font-size: 14px;
+  color: var(--text-color);
+  opacity: 0.75;
+}
+
 .image img {
   width: 420px;
   height: 500px;
   border-radius: 50%;
+  object-fit: cover;
 }

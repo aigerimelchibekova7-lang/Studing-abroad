@@ -1,20 +1,29 @@
-
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { universities } from "./Universities";
+import { useLanguage } from "../components/LanguageContext";
 import "./UniversityDetails.css";
+import { UniversityTranslations } from "../components/UniversityTranslations";
 
 export default function UniversityDetails() {
   const { slug } = useParams();
+  const { t, language }=useLanguage();
 
   const university = universities.find((item) => {
     const itemSlug = item.name
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-|-$/g, "");
+  .toLowerCase()
+  .trim()
+  .replace(/\s+/g, "-")
+  .replace(/[^\p{L}\p{N}-]/gu, "")
+  .replace(/-+/g, "-")
+  .replace(/^-|-$/g, "");
 
     return itemSlug === slug;
   });
+  const translatedUniversity =
+  university
+    ? UniversityTranslations[university.name]?.[language]
+    : undefined;
 
   const images = university
     ? university.images?.length
@@ -41,9 +50,10 @@ export default function UniversityDetails() {
   if (!university) {
     return (
       <main className="university-not-found">
-        <h1>Университет не найден</h1>
+        <h1>{t.universityNotFound}</h1>
+
         <Link to="/universities">
-          ← Вернуться к университетам
+          {t.backToUniversities}
         </Link>
       </main>
     );
@@ -53,7 +63,7 @@ export default function UniversityDetails() {
     <main className="university-details">
       <div className="university-details-container">
         <Link to="/universities" className="university-back">
-          ← Все университеты
+          {t.backToUniversities}
         </Link>
 
         <section className="university-gallery">
@@ -68,8 +78,10 @@ export default function UniversityDetails() {
             <span>
               {university.flag} {university.country}
             </span>
+
             <h1>{university.name}</h1>
-            <p>📍 {university.city}</p>
+
+            <p>📍 {translatedUniversity.city || university.city}</p>
           </div>
 
           {images.length > 1 && (
@@ -81,7 +93,7 @@ export default function UniversityDetails() {
                     (activeImage - 1 + images.length) % images.length
                   )
                 }
-                aria-label="Предыдущее фото"
+                aria-label={t.previousPhoto}
               >
                 ‹
               </button>
@@ -91,7 +103,7 @@ export default function UniversityDetails() {
                 onClick={() =>
                   setActiveImage((activeImage + 1) % images.length)
                 }
-                aria-label="Следующее фото"
+                aria-label={t.nextPhoto}
               >
                 ›
               </button>
@@ -104,7 +116,7 @@ export default function UniversityDetails() {
                       index === activeImage ? "active" : ""
                     }`}
                     onClick={() => setActiveImage(index)}
-                    aria-label={`Фото ${index + 1}`}
+                    aria-label={`${index + 1}` }
                   />
                 ))}
               </div>
@@ -114,63 +126,80 @@ export default function UniversityDetails() {
 
         <section className="university-content-section">
           <p className="university-eyebrow">
-            EDIVIA · EDUCATION • FUTURE</p>
-          <h2>Об университете</h2>
-          <p>{university.description}</p>
+            EDIVIA · EDUCATION • FUTURE
+          </p>
+
+          <h2>{t.aboutUniversity}</h2>
+
+          <p>{translatedUniversity?.description || university.description}</p>
+
           <div className="university-info-grid">
             <article className="university-info-card">
               <span>🎓</span>
-              <h3>Стоимость обучения</h3>
-              <p>
-                {university.tuition || "Уточняется"}
-              </p>
+              <h3>{t.tuitionLabel}</h3>
+              <p>{ translatedUniversity?.tuition || university.tuition || t.tuitionUnknown}</p>
             </article>
+
             <article className="university-info-card">
               <span>🏠</span>
-              <h3>Проживание</h3>
-              <p>{university.accommodation || "Информация уточняется"}</p>
+              <h3>{t.accommodationLabel}</h3>
+              <p>
+                { translatedUniversity?.accommodation || university.accommodation || t.accommodationUnknown}
+              </p>
             </article>
+
             <article className="university-info-card">
               <span>🌐</span>
-              <h3>Язык обучения</h3>
-              <p> {university.language || "Информация уточняется"}</p>
+              <h3>{t.languageLabel}</h3>
+              <p>
+                { translatedUniversity?.language || university.language || t.accommodationUnknown}
+              </p>
             </article>
+
             <article className="university-info-card">
               <span>⏳</span>
-              <h3>Продолжительность обучения</h3>
-              <p>{university.duration || "Зависит от программы"}</p>
+              <h3>{t.durationLabel}</h3>
+              <p>
+                { translatedUniversity?.duration || university.duration || t.durationUnknown}
+              </p>
             </article>
           </div>
 
-          <h2>📚 Направления обучения</h2>
+          <h2>📚 {t.studyFields}</h2>
+
           <div className="university-programs">
-            {university.fields?.map((field) => (
+            {( translatedUniversity?.fields || university.fields)?.map((field) => (
               <div className="university-program" key={field}>
                 ✦ {field}
               </div>
             ))}
           </div>
-          <h2>📄 Требования для поступления</h2>
+
+          <h2>📄 {t.admissionRequirements}</h2>
+
           <ul className="university-requirements">
-            {university.requirements?.map((requirement) => (
-              <li key={requirement}>{requirement}</li>
+            {( translatedUniversity?.requirements || university.requirements)?.map((requirement, index) => (
+              <li key={`${requirement}-${index}`}>
+                {requirement}
+              </li>
             ))}
           </ul>
 
-          <h2>💰 Основные расходы</h2>
+          <h2>💰 {t.mainExpenses}</h2>
+
           <ul className="university-requirements">
-            {university.expenses?.map((expense) => (
-              <li key={expense}>{expense}</li>
+            {(translatedUniversity?.expenses || university.expenses)?.map((expense, index) => (
+              <li key={`${expense}-${index}`}>
+                {expense}
+              </li>
             ))}
           </ul>
 
           <div className="university-cta">
             <div>
-              <h2>Начни своё будущее здесь!</h2>
-              <p>
-                Свяжись с EDIVIA, чтобы узнать больше о поступлении
-                в этот университет.
-              </p>
+              <h2>{t.universityCtaTitle}</h2>
+
+              <p>{t.universityCtaText}</p>
             </div>
 
             <Link
@@ -178,7 +207,7 @@ export default function UniversityDetails() {
               state={{ university: university.name }}
               className="university-apply-button"
             >
-              Хочу поступить →
+              {t.applyButton} →
             </Link>
           </div>
         </section>

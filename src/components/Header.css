@@ -1,16 +1,18 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 .header {
   width: 100%;
   padding: 22px 0;
-  background-color:#f7fbfb;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 1px solid rgb(217, 214, 214);
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .head {
@@ -22,14 +24,16 @@
   padding: 0 25px;
 }
 
+/* LOGO */
 .logo {
   text-decoration: none;
-  color: #102a43;
+  color: var(--text-color);
   font-size: 27px;
   font-weight: 800;
   letter-spacing: 3px;
   display: flex;
   flex-direction: column;
+  transition: color 0.3s ease;
 }
 
 .logo small {
@@ -40,6 +44,7 @@
   color: #829ab1;
 }
 
+/* NAVIGATION */
 .links {
   display: flex;
   align-items: center;
@@ -49,11 +54,10 @@
 .links a {
   position: relative;
   text-decoration: none;
-  color: #486581;
-  font-size: 14px;
-  font-weight: 500;
-  transition: 0.3s;
+  color: var(--text-color);
   font-size: 17px;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .links a:hover {
@@ -65,34 +69,92 @@
   position: absolute;
   left: 0;
   bottom: -7px;
+  width: 0;
   height: 2px;
   background-color: #1769aa;
-  transition: 0.3s;
+  transition: width 0.3s ease;
 }
 
 .links a:hover::after {
   width: 100%;
 }
 
+/* HEADER RIGHT */
 .header-right {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 14px;
 }
 
+/* LANGUAGE SWITCHER */
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  background: var(--card-color);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
 
+.language-switcher button {
+  border: none;
+  background: transparent;
+  color: var(--text-color);
+  padding: 7px 9px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.language-switcher button:hover {
+  background: var(--border-color);
+}
+
+.language-switcher button.active {
+  background: #133845;
+  color: #ffffff;
+}
+
+/* THEME TOGGLE */
+.theme-toggle {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  background: var(--card-color);
+  color: var(--text-color);
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: rotate(15deg) scale(1.05);
+}
+
+/* START JOURNEY BUTTON */
 .how-btn {
   display: flex;
   align-items: center;
   gap: 12px;
   padding: 12px 18px;
   background-color: #1769aa;
-  color: white;
+  color: #ffffff;
   border-radius: 30px;
   text-decoration: none;
   font-size: 13px;
   font-weight: 600;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 .how-btn:hover {
@@ -100,6 +162,7 @@
   transform: translateY(-1px);
 }
 
+/* FAVORITES */
 .favorites-link {
   padding: 8px 12px;
   border-radius: 20px;
@@ -113,4 +176,3 @@
   background: #ffe0e7;
   transform: translateY(-2px);
 }
-

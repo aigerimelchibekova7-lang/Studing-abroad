@@ -1,52 +1,73 @@
-.advantage{
-    background-color:#f7fbfb;
+.advantage {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.advantages{
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 80px 40px;
+/* CONTAINER */
+.advantages {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 40px;
 }
 
-title p{
-     color: #2457a6;
-     font-size: 14px;
-     letter-spacing: 2px;
-     margin-bottom: 15px;
+/* SECTION TITLE */
+.title p {
+  color: #2457a6;
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
 }
-.title h2{
-    font-size: 38px;
-    line-height: 1.2;
-    color: #172b4d;
-    margin-bottom: 45px;
+
+.title h2 {
+  font-size: 38px;
+  line-height: 1.2;
+  color: var(--text-color);
+  margin-bottom: 45px;
+  transition: color 0.3s ease;
 }
-.cards{
-    display: flex;
-    gap: 25px;
+
+.cards {
+  display: flex;
+  gap: 25px;
 }
-.card{
-    flex: 1;
-    padding: 30px;
-    border: 1px solid #e1e5ec;
-    border-radius: 20px;
-    background-color: white;
+
+.card {
+  flex: 1;
+  padding: 30px;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  background-color: var(--card-color);
+  color: var(--text-color);
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
-.icon{
-    font-size: 35px;
-    margin-bottom: 20px;
+
+.icon {
+  font-size: 35px;
+  margin-bottom: 20px;
 }
-.card h3{
-    color: #172b4d;
-    font-size: 20px;
-    margin-bottom: 12px;
+
+.card h3 {
+  color: var(--text-color);
+  font-size: 20px;
+  margin-bottom: 12px;
 }
-.card p{
-    color: #667085;
-    font-size: 15px;
-    line-height: 1.6;
+
+/* CARD DESCRIPTION */
+.card p {
+  color: var(--text-color);
+  opacity: 0.75;
+  font-size: 15px;
+  line-height: 1.6;
 }
-.card:hover{
-  background: #fafbfb;
+
+/* HOVER EFFECT */
+.card:hover {
+  background-color: var(--card-color);
   transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
