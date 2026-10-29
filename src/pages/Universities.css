@@ -8,7 +8,8 @@
 
 /* PAGE TITLE */
 .universities-page h1 {
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto 35px;
   font-size: 42px;
   color: var(--text-color);
@@ -16,8 +17,10 @@
 
 /* COUNTRY FILTERS */
 .country-filters {
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto 40px;
+  padding: 0 20px;
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
@@ -51,7 +54,9 @@
 
 /* UNIVERSITIES GRID */
 .universities-grid {
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -210,7 +215,6 @@
   font-weight: bold;
 }
 
-/* REQUIREMENTS */
 .requirements-list {
   margin: 0;
   padding-left: 20px;
@@ -219,10 +223,131 @@
   line-height: 1.8;
 }
 
-/* FAVORITES BUTTON */
 .universities-grid .university-card-wrapper > .favorite-toggle {
   position: absolute;
   top: 290px;
   left: 320px;
   z-index: 20;
+}
+
+@media (max-width: 1024px) {
+  .universities-page {
+    padding: 45px 0;
+  }
+
+  .universities-page h1 {
+    font-size: 36px;
+    margin-bottom: 28px;
+  }
+
+  .country-filters {
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+
+  .country-filters button {
+    padding: 10px 16px;
+  }
+
+  .universities-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .university-image {
+    height: 240px;
+  }
+
+  .universities-grid .university-card-wrapper > .favorite-toggle {
+    top: 250px;
+    left: auto;
+    right: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .universities-page {
+    padding: 35px 0;
+  }
+
+  .universities-page h1 {
+    font-size: 30px;
+    margin-bottom: 25px;
+  }
+
+  .country-filters {
+    gap: 8px;
+    margin-bottom: 25px;
+  }
+
+  .country-filters button {
+    padding: 9px 13px;
+    font-size: 13px;
+  }
+
+  .universities-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+
+  .university-image {
+    height: 250px;
+  }
+
+  .university-info {
+    padding: 20px;
+  }
+
+  .university-info h3 {
+    font-size: 20px;
+  }
+
+  .university-description {
+    font-size: 14px;
+  }
+
+  .universities-grid .university-card-wrapper > .favorite-toggle {
+    top: 15px;
+    left: auto;
+    right: 15px;
+  }
+
+  .expenses-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 400px) {
+  .universities-page h1 {
+    font-size: 26px;
+  }
+
+  .country-filters button {
+    padding: 8px 11px;
+    font-size: 12px;
+  }
+
+  .universities-grid {
+    gap: 18px;
+  }
+
+  .university-image {
+    height: 210px;
+  }
+
+  .university-info {
+    padding: 16px;
+  }
+
+  .university-info h3 {
+    font-size: 18px;
+  }
+
+  .university-tags {
+    gap: 6px;
+  }
+
+  .university-tags span {
+    font-size: 10px;
+  }
 }

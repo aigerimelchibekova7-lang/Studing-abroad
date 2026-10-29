@@ -11,7 +11,7 @@ const stories = [
     flag: "🇰🇷",
   },
   {
-    name: "Ильяс",
+    name: "Ильяз",
     country: "Германия",    
     image: "/Boy.png",
     textKey: "ilyasText",
