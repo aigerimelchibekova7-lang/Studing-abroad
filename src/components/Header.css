@@ -3,21 +3,15 @@
   box-sizing: border-box;
 }
 
-/* ================================
-   HEADER
-================================ */
-
 .header {
   width: 100%;
   padding: 18px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
-
   background: var(--bg-color);
   color: var(--text-color);
   border-bottom: 1px solid var(--border-color);
-
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -26,25 +20,18 @@
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 40px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 25px;
 }
 
-/* ================================
-   LOGO
-================================ */
-
 .logo {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-
   color: var(--text-color);
   text-decoration: none;
-
   font-size: 29px;
   font-weight: 900;
   letter-spacing: 3px;
@@ -54,15 +41,10 @@
 .logo small {
   margin-top: 5px;
   color: #829ab1;
-
   font-size: 8px;
   font-weight: 600;
   letter-spacing: 2px;
 }
-
-/* ================================
-   MENU BUTTON
-================================ */
 
 .menu-toggle {
   display: none;
@@ -70,14 +52,11 @@
   justify-content: center;
   align-items: center;
   gap: 5px;
-
   width: 44px;
   height: 44px;
   padding: 10px;
-
   border: 1px solid var(--border-color);
   border-radius: 12px;
-
   background: var(--card-color);
   cursor: pointer;
 }
@@ -86,10 +65,8 @@
   display: block;
   width: 20px;
   height: 2px;
-
   border-radius: 3px;
   background: var(--text-color);
-
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
@@ -105,10 +82,6 @@
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* ================================
-   HEADER CONTENT
-================================ */
-
 .header-content {
   display: flex;
   align-items: center;
@@ -116,10 +89,6 @@
   flex: 1;
   gap: 25px;
 }
-
-/* ================================
-   NAVIGATION
-================================ */
 
 .links {
   display: flex;
@@ -130,14 +99,11 @@
 
 .links a {
   position: relative;
-
   color: var(--text-color);
   text-decoration: none;
   white-space: nowrap;
-
   font-size: 14px;
   font-weight: 600;
-
   transition: color 0.25s ease;
 }
 
@@ -151,13 +117,10 @@
   position: absolute;
   left: 0;
   bottom: -7px;
-
   width: 0;
   height: 2px;
-
   border-radius: 5px;
   background: linear-gradient(90deg, #1769aa, #49c6d5);
-
   transition: width 0.3s ease;
 }
 
@@ -165,10 +128,6 @@
 .links a.active-link::after {
   width: 100%;
 }
-
-/* ================================
-   RIGHT CONTROLS
-================================ */
 
 .header-right {
   display: flex;
@@ -178,26 +137,19 @@
   flex-shrink: 0;
 }
 
-/* THEME */
-
 .theme-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-
   width: 42px;
   height: 42px;
-
   border: 1px solid var(--border-color);
   border-radius: 13px;
-
   background: var(--card-color);
   color: var(--text-color);
-
   font-size: 19px;
   cursor: pointer;
-
   transition: transform 0.3s ease;
 }
 
@@ -205,15 +157,11 @@
   transform: rotate(12deg);
 }
 
-/* LANGUAGE */
-
 .language-switcher {
   display: flex;
   align-items: center;
   gap: 3px;
-
   padding: 4px;
-
   background: var(--card-color);
   border: 1px solid var(--border-color);
   border-radius: 12px;
@@ -223,13 +171,10 @@
   padding: 8px;
   border: none;
   border-radius: 8px;
-
   background: transparent;
   color: var(--text-color);
-
   font-size: 11px;
   font-weight: 700;
-
   cursor: pointer;
 }
 
@@ -238,26 +183,19 @@
   color: white;
 }
 
-/* START JOURNEY */
-
 .how-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 7px;
-
   padding: 12px 17px;
-
   border-radius: 30px;
   background: linear-gradient(135deg, #1769aa, #2585df);
   color: white;
-
   text-decoration: none;
   white-space: nowrap;
-
   font-size: 12px;
   font-weight: 700;
-
   box-shadow: 0 5px 16px rgba(23, 105, 170, 0.2);
   transition: transform 0.3s ease;
 }
@@ -265,8 +203,6 @@
 .how-btn:hover {
   transform: translateY(-2px);
 }
-
-/* FAVORITES */
 
 .favorites-link,
 .mobile-favorites {
@@ -294,9 +230,6 @@
   display: none;
 }
 
-/* ================================
-   TABLET
-================================ */
 
 @media (max-width: 1200px) {
   .head.container {
@@ -330,10 +263,6 @@
     font-size: 11px;
   }
 }
-
-/* ================================
-   MOBILE MENU
-================================ */
 
 @media (max-width: 900px) {
   .header {
@@ -418,10 +347,6 @@
     display: none;
   }
 }
-
-/* ================================
-   SMALL MOBILE
-================================ */
 
 @media (max-width: 480px) {
   .head.container {

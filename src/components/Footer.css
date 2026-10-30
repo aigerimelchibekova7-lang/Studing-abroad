@@ -95,7 +95,6 @@
   }
 }
 
-/* MOBILE — телефон */
 @media (max-width: 768px) {
   .footer {
     padding: 40px 20px 20px;
@@ -148,7 +147,6 @@
   }
 }
 
-/* КИЧИНЕКЕЙ ТЕЛЕФОН */
 @media (max-width: 400px) {
   .footer {
     padding: 35px 15px 15px;
