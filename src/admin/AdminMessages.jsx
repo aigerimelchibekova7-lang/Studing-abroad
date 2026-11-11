@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { supabase } from "../supabaseClient";
 import "./AdminMessages.css";
@@ -7,17 +8,19 @@ function AdminMessages() {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [deletingId, setDeletingId] = useState(null);
 
   async function fetchMessages() {
     setLoading(true);
     setError("");
 
     const { data, error } = await supabase
-      .from("messages")
+      .from("Contact")
       .select("*")
       .order("created_at", { ascending: false });
 
     if (error) {
+      console.error(error);
       setError(error.message);
     } else {
       setMessages(data ?? []);
@@ -30,13 +33,44 @@ function AdminMessages() {
     fetchMessages();
   }, []);
 
+  async function handleDelete(id) {
+    const confirmed = window.confirm(
+      "Бул билдирүүнү өчүрүүгө ишенесизби?"
+    );
+
+    if (!confirmed) return;
+
+    setDeletingId(id);
+    setError("");
+
+    const { data, error } = await supabase
+      .from("Contact")
+      .delete()
+      .eq("id", id)
+      .select("id");
+
+    if (error) {
+      console.error("Өчүрүү катасы:", error);
+      setError(error.message);
+    } else if (!data || data.length === 0) {
+      setError("Билдирүү өчүрүлгөн жок. Админ укугун текшериңиз.");
+    } else {
+      setMessages((previous) =>
+        previous.filter((item) => item.id !== id)
+      );
+    }
+
+    setDeletingId(null);
+  }
+
   const filteredMessages = messages.filter((item) => {
     const query = search.toLowerCase();
 
     return (
       (item.full_name || "").toLowerCase().includes(query) ||
       (item.email || "").toLowerCase().includes(query) ||
-      (item.country || "").toLowerCase().includes(query)
+      (item.country || "").toLowerCase().includes(query) ||
+      (item.message || "").toLowerCase().includes(query)
     );
   });
 
@@ -60,7 +94,6 @@ function AdminMessages() {
 
       <section className="messages-summary">
         <div className="summary-icon">✉️</div>
-
         <div>
           <span>Всего сообщений</span>
           <h2>{messages.length}</h2>
@@ -83,11 +116,8 @@ function AdminMessages() {
 
       {error && (
         <div className="messages-error">
-          <strong>Не удалось загрузить сообщения.</strong>
+          <strong>Ошибка:</strong>
           <p>{error}</p>
-          <p>
-            Проверь настройки доступа к таблице messages в Supabase.
-          </p>
         </div>
       )}
 
@@ -117,6 +147,7 @@ function AdminMessages() {
                   <th>Страна</th>
                   <th>Сообщение</th>
                   <th>Дата</th>
+                  <th>Действие</th>
                 </tr>
               </thead>
 
@@ -126,21 +157,28 @@ function AdminMessages() {
                     <td className="message-name">
                       {item.full_name || "Не указано"}
                     </td>
-
                     <td>{item.email || "—"}</td>
                     <td>{item.phone || "—"}</td>
                     <td>{item.country || "—"}</td>
-
                     <td className="message-text">
-                      {item.massage || "—"}
+                      {item.message || "—"}
                     </td>
-
                     <td>
                       {item.created_at
-                        ? new Date(item.created_at).toLocaleDateString(
-                            "ru-RU"
-                          )
+                        ? new Date(item.created_at).toLocaleDateString("ru-RU")
                         : "—"}
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        className="message-delete-btn"
+                        onClick={() => handleDelete(item.id)}
+                        disabled={deletingId === item.id}
+                      >
+                        {deletingId === item.id
+                          ? "Өчүрүлүүдө..."
+                          : "Өчүрүү"}
+                      </button>
                     </td>
                   </tr>
                 ))}

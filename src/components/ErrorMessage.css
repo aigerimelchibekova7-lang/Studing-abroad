@@ -1,0 +1,23 @@
+.error-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  max-width: 600px;
+  margin: 25px auto;
+  padding: 16px 20px;
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.error-message span {
+  font-size: 22px;
+}
+
+.error-message p {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+}

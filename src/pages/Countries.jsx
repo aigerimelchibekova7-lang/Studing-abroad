@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Countries.css";
 import { useLanguage } from "../components/LanguageContext";
+import CountryCard from "../components/CountryCard";
 
 const Countries = () => {
   const [selectedCountry, setSelectedCountry] = useState(null);
@@ -66,34 +67,19 @@ const Countries = () => {
       </section>
 
       <section className="countries-section">
-        <div className="countries-grid">
-          {countries.map((country) => (
-            <div className="countries-card" key={country.id}>
-              <div className="countries-card-top">
-                <div className="countries-flag">
-                  {country.flag}
-                </div>
-              </div>
-
-              <h2>{t[country.nameKey]}</h2>
-
-              <p>{t[country.descriptionKey]}</p>
-
-              <div className="countries-directions">
-                {t[country.directionsKey].map((direction) => (
-                  <span key={direction}>{direction}</span>
-                ))}
-              </div>
-
-              <button
-                className="details-btn"
-                onClick={() => setSelectedCountry(country)}
-              >
-                {t.details}
-              </button>
-            </div>
-          ))}
-        </div>
+       <div className="countries-grid">
+        {countries.map((country) => (
+       <CountryCard
+      key={country.id}
+      flag={country.flag}
+      country={t[country.nameKey]}
+      description={t[country.descriptionKey]}
+      directions={t[country.directionsKey]}
+      detailsText={t.details}
+      onClick={() => setSelectedCountry(country)}
+    />
+  ))}
+</div>
       </section>
 
       {selectedCountry && (

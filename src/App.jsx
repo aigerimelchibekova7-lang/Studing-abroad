@@ -19,6 +19,8 @@ import AdminUniversities from "./admin/AdminUniversities";
 import AdminCountries from "./admin/AdminCountries";
 import { LanguageProvider } from "./components/LanguageContext"
 import { ThemeProvider } from "./components/ThemeContext";
+import AdminLogin from "./admin/AdminLogin";
+import ScrollToTop from "./components/ScrollToTop";
 
 function AppContent() {
   const location = useLocation();
@@ -41,6 +43,7 @@ function AppContent() {
           path="/universities/:slug"
           element={<UniversityDetails />}
         />
+        <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin" element={<AdminLayout />}>
        <Route index element={<AdminDashboard />} />
      <Route path="messages" element={<AdminMessages />} />
@@ -59,6 +62,7 @@ function App() {
    <ThemeProvider>
      <LanguageProvider>
       <BrowserRouter>
+      <ScrollToTop />
       <AppContent />
     </BrowserRouter>
     </LanguageProvider>

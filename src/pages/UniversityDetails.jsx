@@ -1,52 +1,124 @@
+
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { universities } from "./Universities";
+
 import { useLanguage } from "../components/LanguageContext";
-import "./UniversityDetails.css";
 import { UniversityTranslations } from "../components/UniversityTranslations";
+
+import { getUniversities, createUniversitySlug } from "../services/universitiesApi";
+
+import UniversityGallery from "../components/UniversityGallery";
+import UniversityInfo from "../components/UniversityInfo";
+import RequirementsList from "../components/RequirementsList";
+import ExpensesList from "../components/ExpensesList";
+import Breadcrumbs from "../components/Breadcrumbs";
+import StudyFields from "../components/StudyFields";
+import UniversityCTA from "../components/UniversityCTA";
+
+import "./UniversityDetails.css";
 
 export default function UniversityDetails() {
   const { slug } = useParams();
-  const { t, language }=useLanguage();
+  const { t, language } = useLanguage();
 
-  const university = universities.find((item) => {
-    const itemSlug = item.name
-  .toLowerCase()
-  .trim()
-  .replace(/\s+/g, "-")
-  .replace(/[^\p{L}\p{N}-]/gu, "")
-  .replace(/-+/g, "-")
-  .replace(/^-|-$/g, "");
+  const [universities, setUniversities] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [activeImage, setActiveImage] = useState(0);
 
-    return itemSlug === slug;
-  });
-  const translatedUniversity =
-  university
+  // Университеттерди Supabase'ден жүктөө
+  useEffect(() => {
+    let isMounted = true;
+
+    const loadUniversities = async () => {
+      try {
+        const data = await getUniversities();
+
+        if (isMounted) {
+          setUniversities(data);
+        }
+      } catch (err) {
+        console.error("Университетти жүктөө катасы:", err);
+
+        if (isMounted) {
+          setError(
+            "Университеттин маалыматын жүктөө мүмкүн болгон жок."
+          );
+        }
+      } finally {
+        if (isMounted) {
+          setLoading(false);
+        }
+      }
+    };
+
+    loadUniversities();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  // URL slug аркылуу университетти табуу
+  const university = universities.find(
+    (item) => createUniversitySlug(item.name) === slug
+  );
+
+  // Университеттин котормосун алуу
+  const translatedUniversity = university
     ? UniversityTranslations[university.name]?.[language]
     : undefined;
 
+  // Университеттин сүрөттөрүн алуу
   const images = university
     ? university.images?.length
       ? university.images
-      : [university.image]
+      : university.image
+      ? [university.image]
+      : []
     : [];
 
-  const [activeImage, setActiveImage] = useState(0);
-
+  // Баштапкы сүрөткө кайтаруу
   useEffect(() => {
     setActiveImage(0);
   }, [slug]);
 
+  // Сүрөттөрдү автоматтык алмаштыруу
   useEffect(() => {
     if (images.length < 2) return;
 
     const timer = setInterval(() => {
-      setActiveImage((current) => (current + 1) % images.length);
+      setActiveImage(
+        (current) => (current + 1) % images.length
+      );
     }, 4000);
 
     return () => clearInterval(timer);
   }, [slug, images.length]);
 
+  // Жүктөлүп жаткан учурда
+  if (loading) {
+    return (
+      <main className="university-not-found">
+        <h2>Университет жүктөлүүдө...</h2>
+      </main>
+    );
+  }
+
+  // Ката чыккан учурда
+  if (error) {
+    return (
+      <main className="university-not-found">
+        <h2>{error}</h2>
+
+        <Link to="/universities">
+          {t.backToUniversities}
+        </Link>
+      </main>
+    );
+  }
+
+  // Университет табылбаса
   if (!university) {
     return (
       <main className="university-not-found">
@@ -59,157 +131,90 @@ export default function UniversityDetails() {
     );
   }
 
+  // Негизги барак
   return (
     <main className="university-details">
       <div className="university-details-container">
-        <Link to="/universities" className="university-back">
-          {t.backToUniversities}
-        </Link>
 
-        <section className="university-gallery">
-          <img
-            key={images[activeImage]}
-            src={images[activeImage]}
-            alt={university.name}
-            className="university-gallery-image"
-          />
+        {/* Навигация */}
+        <Breadcrumbs
+          items={[
+            {
+              label: t.backToUniversities,
+              to: "/universities",
+            },
+            {
+              label: university.name,
+            },
+          ]}
+        />
 
-          <div className="university-gallery-overlay">
-            <span>
-              {university.flag} {university.country}
-            </span>
-
-            <h1>{university.name}</h1>
-
-            <p>📍 {translatedUniversity.city || university.city}</p>
-          </div>
-
-          {images.length > 1 && (
-            <>
-              <button
-                className="gallery-arrow gallery-prev"
-                onClick={() =>
-                  setActiveImage(
-                    (activeImage - 1 + images.length) % images.length
-                  )
-                }
-                aria-label={t.previousPhoto}
-              >
-                ‹
-              </button>
-
-              <button
-                className="gallery-arrow gallery-next"
-                onClick={() =>
-                  setActiveImage((activeImage + 1) % images.length)
-                }
-                aria-label={t.nextPhoto}
-              >
-                ›
-              </button>
-
-              <div className="gallery-dots">
-                {images.map((image, index) => (
-                  <button
-                    key={image + index}
-                    className={`gallery-dot ${
-                      index === activeImage ? "active" : ""
-                    }`}
-                    onClick={() => setActiveImage(index)}
-                    aria-label={`${index + 1}` }
-                  />
-                ))}
-              </div>
-            </>
-          )}
-        </section>
+        {/* Сүрөттөр галереясы */}
+        <UniversityGallery
+          images={images}
+          activeImage={activeImage}
+          setActiveImage={setActiveImage}
+          university={{
+            ...university,
+            city: translatedUniversity?.city || university.city,
+          }}
+          t={t}
+        />
 
         <section className="university-content-section">
+
+          {/* Университет жөнүндө */}
           <p className="university-eyebrow">
             EDIVIA · EDUCATION • FUTURE
           </p>
 
           <h2>{t.aboutUniversity}</h2>
 
-          <p>{translatedUniversity?.description || university.description}</p>
+          <p>
+            {translatedUniversity?.description ||
+              university.description}
+          </p>
 
-          <div className="university-info-grid">
-            <article className="university-info-card">
-              <span>🎓</span>
-              <h3>{t.tuitionLabel}</h3>
-              <p>{ translatedUniversity?.tuition || university.tuition || t.tuitionUnknown}</p>
-            </article>
+          {/* Негизги маалыматтар */}
+          <UniversityInfo
+            university={university}
+            translatedUniversity={translatedUniversity}
+            t={t}
+          />
 
-            <article className="university-info-card">
-              <span>🏠</span>
-              <h3>{t.accommodationLabel}</h3>
-              <p>
-                { translatedUniversity?.accommodation || university.accommodation || t.accommodationUnknown}
-              </p>
-            </article>
+          {/* Адистиктер */}
+          <StudyFields
+            fields={
+              translatedUniversity?.fields ||
+              university.fields
+            }
+            t={t}
+          />
 
-            <article className="university-info-card">
-              <span>🌐</span>
-              <h3>{t.languageLabel}</h3>
-              <p>
-                { translatedUniversity?.language || university.language || t.accommodationUnknown}
-              </p>
-            </article>
+          {/* Кабыл алуу талаптары */}
+          <RequirementsList
+            requirements={
+              translatedUniversity?.requirements ||
+              university.requirements
+            }
+            t={t}
+          />
 
-            <article className="university-info-card">
-              <span>⏳</span>
-              <h3>{t.durationLabel}</h3>
-              <p>
-                { translatedUniversity?.duration || university.duration || t.durationUnknown}
-              </p>
-            </article>
-          </div>
+          {/* Негизги чыгымдар */}
+          <ExpensesList
+            expenses={
+              translatedUniversity?.expenses ||
+              university.expenses
+            }
+            t={t}
+          />
 
-          <h2>📚 {t.studyFields}</h2>
+          {/* Окууга тапшыруу */}
+          <UniversityCTA
+            university={university}
+            t={t}
+          />
 
-          <div className="university-programs">
-            {( translatedUniversity?.fields || university.fields)?.map((field) => (
-              <div className="university-program" key={field}>
-                ✦ {field}
-              </div>
-            ))}
-          </div>
-
-          <h2>📄 {t.admissionRequirements}</h2>
-
-          <ul className="university-requirements">
-            {( translatedUniversity?.requirements || university.requirements)?.map((requirement, index) => (
-              <li key={`${requirement}-${index}`}>
-                {requirement}
-              </li>
-            ))}
-          </ul>
-
-          <h2>💰 {t.mainExpenses}</h2>
-
-          <ul className="university-requirements">
-            {(translatedUniversity?.expenses || university.expenses)?.map((expense, index) => (
-              <li key={`${expense}-${index}`}>
-                {expense}
-              </li>
-            ))}
-          </ul>
-
-          <div className="university-cta">
-            <div>
-              <h2>{t.universityCtaTitle}</h2>
-
-              <p>{t.universityCtaText}</p>
-            </div>
-
-            <Link
-              to="/contact"
-              state={{ university: university.name }}
-              className="university-apply-button"
-            >
-              {t.applyButton} →
-            </Link>
-          </div>
         </section>
       </div>
     </main>

@@ -1,0 +1,42 @@
+
+.search-bar {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 25px;
+}
+
+.search-bar input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 18px;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+
+  background-color: var(--card-bg);
+  color: var(--text-color);
+
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.search-bar input::placeholder {
+  color: var(--text-color);
+  opacity: 0.6;
+}
+
+[data-theme="dark"] .search-bar input {
+  background-color: #1b2833 !important;
+  color: #f1f5f9 !important;
+  border-color: #344451;
+}
+
+[data-theme="dark"] .search-bar input::placeholder {
+  color: #f1f5f9;
+  opacity: 0.6;
+}
+
+.search-bar input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}

@@ -1,4 +1,3 @@
-import { universities as initialUniversities } from "./pages/Universities";
 
 const STORAGE_KEY = "edivia_universities";
 
@@ -10,16 +9,20 @@ export function getUniversities() {
       return JSON.parse(saved);
     }
 
-    return initialUniversities;
+    return [];
   } catch (error) {
     console.error("Ошибка загрузки университетов:", error);
-    return initialUniversities;
+    return [];
   }
 }
 
 export function saveUniversities(universities) {
-  localStorage.setItem(
-    STORAGE_KEY,
-    JSON.stringify(universities)
-  );
+  try {
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify(universities)
+    );
+  } catch (error) {
+    console.error("Ошибка сохранения университетов:", error);
+  }
 }

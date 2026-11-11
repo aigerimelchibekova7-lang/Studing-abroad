@@ -283,7 +283,6 @@
   }
 }
 
-/* Планшеттер */
 @media (max-width: 992px) {
   .contact-page {
     padding: 30px 0 60px;
@@ -329,7 +328,6 @@
   }
 }
 
-/* Телефондор */
 @media (max-width: 600px) {
   .contact-page {
     padding: 20px 0 40px;
@@ -489,7 +487,6 @@
   }
 }
 
-/* Өтө кичинекей телефондор */
 @media (max-width: 360px) {
   .contact-hero,
   .contact-content {

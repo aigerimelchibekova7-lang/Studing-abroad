@@ -39,7 +39,12 @@
   box-shadow: 0 15px 40px rgba(18, 59, 93, 0.12);
   
 }
-
+.gallery-image {
+  width: 100%;
+  height: 450px;
+  object-fit: contain;
+  background: #f5f5f5;
+}
 .university-gallery-image {
   display: block;
   width: 100%;
@@ -279,7 +284,6 @@
   line-height: 1.8;
 }
 
-/* Кнопка поступления */
 .university-apply-button {
   display: inline-block;
   flex-shrink: 0;
@@ -300,7 +304,6 @@
   transform: translateY(-3px);
 }
 
-/* Университет не найден */
 .university-not-found {
   min-height: 60vh;
   display: flex;
@@ -326,6 +329,49 @@
 
 .university-not-found a:hover {
   text-decoration: underline;
+}
+
+
+.breadcrumbs {
+  margin-bottom: 24px;
+}
+
+.breadcrumbs-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumbs-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.breadcrumbs a {
+  color: var(--text-color);
+  text-decoration: none;
+  opacity: 0.7;
+  transition: 0.3s;
+}
+
+.breadcrumbs a:hover {
+  color: #3b82f6;
+  opacity: 1;
+}
+
+.breadcrumbs [aria-current="page"] {
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.breadcrumbs-separator {
+  opacity: 0.5;
+  color: var(--text-color);
 }
 
 @media (max-width: 1024px) {
@@ -366,9 +412,6 @@
   }
 }
 
-/* =========================
-   MOBILE — 768px
-========================= */
 @media (max-width: 768px) {
   .university-details {
     padding: 25px 0 45px;
@@ -521,9 +564,6 @@
   }
 }
 
-/* =========================
-   SMALL MOBILE — 400px
-========================= */
 @media (max-width: 400px) {
   .university-details-container {
     padding: 0 12px;

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { supabase } from "../supabaseClient";
 import { useLanguage } from "../components/LanguageContext";
 import "./Contact.css";
+import ContactForm from "../components/ContactForm";
+import ContactInfo from "../components/ContactInfo";
 
 const Contact = () => { 
   const { language }= useLanguage();
@@ -158,113 +160,14 @@ const t = translations[language] || translations.ru;
   return (
     <section className="contact-page">
       <div className="contact-content">
-        <div className="contact-info">
-          <h2>{t.contacts}</h2>
-          <div className="info-item">
-            <span>☎️</span>
-            <div>
-              <h4>{t.phone}</h4>
-              <p>+996 700 000 000</p>
-            </div>
-          </div>
-          <div className="info-item">
-            <span>✉️</span>
-            <div>
-              <h4>{t.email}</h4>
-              <p>info@edivia.com</p>
-            </div>
-          </div>
-          <div className="info-item">
-            <span>📍</span>
-            <div>
-              <h4>{t.adress}</h4>
-              <p>{t.location}</p>
-              <p>{t.building}</p>
-            </div>
-          </div>
-          <div className="info-item">
-            <span>🕐</span>
-            <div>
-              <h4>{t.workingHours}</h4>
-              <p>{t.weekdays}</p>
-              <p>{t.weekends}</p>
-            </div>
-          </div>
-         </div>       
-        <div className="contact-form">
-       <h2>{t.writeUs}</h2>
-       <p className="form-description">
-       {t.description}</p>
-  <form onSubmit={handleSubmit}>
-    <div className="form-row">
-      <div className="form-group">
-        <label>Ваше имя *</label>
-        <input
-          type="text"
-          name="full_name"
-          placeholder={t.fullName}
-          required/>
-      </div>
-      <div className="form-group">
-        <label>{t.phone}</label>
-        <input
-          type="tel"
-          name="phone"
-          placeholder={t.phoneNumber}
-          required/>
-      </div>
-    </div>
-    <div className="form-row">
-      <div className="form-group">
-        <label>{t.email}</label>
-        <input
-          type="email"
-          name="email"
-          placeholder="example@gmail.com"
-          required/>
-      </div>
-      <div className="form-group">
-        <label>{t.chooseCountry}</label>
-        <select name="country" defaultValue="" required>
-          <option value="" disabled>
-            {t.countryPlaceholder}
-          </option>
-          <option value="Саудовская Аравия">{t.countries[0]}</option>
-          <option value="Южная Корея">{t.countries[1]}</option>
-          <option value="Германия">{t.countries[2]}</option>
-          <option value="Италия">{t.countries[3]}</option>
-          <option value="Турция">{t.countries[4]}</option>
-          <option value="Китай">{t.countries[5]}</option>
-        </select>
-      </div>
-    </div>
-
-    <div className="form-group">
-      <label>{t.message}</label>
-      <textarea
-        name="message"
-        placeholder={t.messagePlaceholder}
-        required
-      />
-    </div>
-
-    <button type="submit" disabled={loading}>
-      {loading ? t.sending :t.send}
-    </button>
-  </form>
-
-  {sent && (
-    <div className="success-message">
-      {t.success}
-    </div>
-  )}
-
-  {error && (
-    <div className="error-message" role="alert">
-      ❌ {error}
-    </div>
-  )}
-</div>
+           <ContactInfo t={t} />
+     <ContactForm
+  t={t}
+  loading={loading}
+  sent={sent}
+  error={error}
+  handleSubmit={handleSubmit}
+/>
 </div>
 </section>
 );

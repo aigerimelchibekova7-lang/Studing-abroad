@@ -5,7 +5,6 @@
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* HERO SECTION */
 .how-hero {
   width: 1200px;
   margin: 0 auto 70px;
@@ -63,7 +62,6 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
 }
 
-/* HERO IMAGE */
 .how-image {
   width: 45%;
 }
@@ -76,7 +74,6 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
-/* STEPS SECTION */
 .steps-section {
   width: 1200px;
   margin: 0 auto 80px;
@@ -118,7 +115,6 @@
   z-index: 0;
 }
 
-/* STEP CARD */
 .step-card {
   background-color: var(--card-color);
   color: var(--text-color);
@@ -163,7 +159,6 @@
   line-height: 1.5;
 }
 
-/* DOCUMENTS SECTION */
 .documents-section {
   width: 1200px;
   margin: 0 auto 80px;
@@ -186,7 +181,6 @@
   margin-top: 10px;
 }
 
-/* DOCUMENT CARDS */
 .documents {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -225,7 +219,6 @@
   line-height: 1.5;
 }
 
-/* CONSULTATION SECTION */
 .consultation {
   width: 1200px;
   margin: 0 auto;

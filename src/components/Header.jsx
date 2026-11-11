@@ -130,7 +130,6 @@ const Header = () => {
               </button>
             </div>
 
-            {/* START JOURNEY */}
             <Link
               to="/how-to-apply"
               className="how-btn"

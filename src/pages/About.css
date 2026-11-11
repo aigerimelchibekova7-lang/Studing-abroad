@@ -306,7 +306,6 @@
   }
 }
 
-/* Планшеттер */
 @media (max-width: 992px) {
   .about-hero {
     min-height: auto;
@@ -389,7 +388,6 @@
   }
 }
 
-/* Телефондор */
 @media (max-width: 600px) {
   .abouts,
   .why,

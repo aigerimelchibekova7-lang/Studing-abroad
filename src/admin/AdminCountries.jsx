@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getUniversities } from "../UniversitiesStorage";
+import { getUniversities } from "../services/universitiesApi";
 import "./AdminCountries.css";
 
 function AdminCountries() {
-  const [universities] = useState(() => getUniversities());
+  const [universities, setUniversities] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   const countries = [
     { name: "Арабия", flag: "🇸🇦", city: "Эр-Рияд" },
@@ -15,9 +18,36 @@ function AdminCountries() {
     { name: "Китай", flag: "🇨🇳", city: "Пекин" },
   ];
 
+  useEffect(() => {
+    async function loadUniversities() {
+      try {
+        setLoading(true);
+        setError("");
+
+        const data = await getUniversities();
+        setUniversities(data);
+      } catch (err) {
+        console.error("Ошибка загрузки стран:", err);
+        setError("Не удалось загрузить данные из Supabase.");
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadUniversities();
+  }, []);
+
   const totalCountries = new Set(
     universities.map((university) => university.country)
   ).size;
+
+  if (loading) {
+    return <div className="admin-countries">Загрузка данных...</div>;
+  }
+
+  if (error) {
+    return <div className="admin-countries">{error}</div>;
+  }
 
   return (
     <div className="admin-countries">
@@ -57,10 +87,7 @@ function AdminCountries() {
             ).length;
 
             return (
-              <div
-                className="admin-country-card"
-                key={country.name}
-              >
+              <div className="admin-country-card" key={country.name}>
                 <div className="admin-country-card-top">
                   <span className="admin-country-flag">
                     {country.flag}

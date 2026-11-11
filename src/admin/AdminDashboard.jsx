@@ -10,7 +10,7 @@ function AdminDashboard() {
   useEffect(() => {
     async function fetchStatistics() {
       const { count, error } = await supabase
-        .from("messages")
+        .from("Contact")
         .select("*", { count: "exact", head: true });
 
       if (error) {

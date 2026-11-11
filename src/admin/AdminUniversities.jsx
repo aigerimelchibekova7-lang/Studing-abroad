@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import {  getUniversities, saveUniversities } from "../UniversitiesStorage";
+import { getUniversities } from "../services/universitiesApi";
+import { supabase } from "../supabaseClient";
 import "./AdminUniversities.css";
 
 function AdminUniversities() {
-  const [universities, setUniversities] = useState(() =>
-    getUniversities()
-  );
-
+  const [universities, setUniversities] = useState([]);
   const [showForm, setShowForm] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState("");
+
   const [formData, setFormData] = useState({
     name: "",
     country: "",
@@ -17,7 +20,25 @@ function AdminUniversities() {
     fields: "",
   });
 
-  const [error, setError] = useState("");
+  // Supabase'ден университеттерди алуу
+  useEffect(() => {
+    async function loadUniversities() {
+      try {
+        setLoading(true);
+        setError("");
+
+        const data = await getUniversities();
+        setUniversities(data);
+      } catch (err) {
+        console.error(err);
+        setError("Университеттерди жүктөө мүмкүн болгон жок.");
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadUniversities();
+  }, []);
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -28,7 +49,8 @@ function AdminUniversities() {
     }));
   }
 
-  function handleAddUniversity(event) {
+  // Supabase'ге жаңы университет кошуу
+  async function handleAddUniversity(event) {
     event.preventDefault();
     setError("");
 
@@ -52,6 +74,7 @@ function AdminUniversities() {
         .filter(Boolean),
       description: "",
       image: "",
+      images: [],
       tuition: "Уточняется",
       livingCost: "Уточняется",
       accommodation: "Уточняется",
@@ -61,14 +84,17 @@ function AdminUniversities() {
       expenses: [],
     };
 
-    const updatedUniversities = [
-      ...universities,
-      newUniversity,
-    ];
-
     try {
-      saveUniversities(updatedUniversities);
-      setUniversities(updatedUniversities);
+      setSaving(true);
+
+      const { data, error: insertError } = await supabase
+        .from("Universities1")
+        .insert([newUniversity])
+        .select();
+
+      if (insertError) throw insertError;
+
+      setUniversities((previous) => [...previous, data[0]]);
 
       setFormData({
         name: "",
@@ -79,27 +105,38 @@ function AdminUniversities() {
       });
 
       setShowForm(false);
-    } catch (error) {
-      setError("Не удалось сохранить данные в браузере.");
+    } catch (err) {
+      console.error("Добавление университета:", err);
+      setError("Не удалось добавить университет. Проверьте права доступа.");
+    } finally {
+      setSaving(false);
     }
   }
 
-  function handleDeleteUniversity(indexToDelete) {
+  // Supabase'ден университетти өчүрүү
+  async function handleDeleteUniversity(university) {
     const confirmed = window.confirm(
       "Вы действительно хотите удалить этот университет?"
     );
 
     if (!confirmed) return;
 
-    const updatedUniversities = universities.filter(
-      (_, index) => index !== indexToDelete
-    );
-
     try {
-      saveUniversities(updatedUniversities);
-      setUniversities(updatedUniversities);
-    } catch (error) {
-      setError("Не удалось сохранить изменения.");
+      setError("");
+
+      const { error: deleteError } = await supabase
+        .from("Universities1")
+        .delete()
+        .eq("id", university.id);
+
+      if (deleteError) throw deleteError;
+
+      setUniversities((previous) =>
+        previous.filter((item) => item.id !== university.id)
+      );
+    } catch (err) {
+      console.error("Удаление университета:", err);
+      setError("Не удалось удалить университет.");
     }
   }
 
@@ -197,8 +234,12 @@ function AdminUniversities() {
             <p className="admin-university-error">{error}</p>
           )}
 
-          <button type="submit" className="admin-save-university">
-            Сохранить университет
+          <button
+            type="submit"
+            className="admin-save-university"
+            disabled={saving}
+          >
+            {saving ? "Сохранение..." : "Сохранить университет"}
           </button>
         </form>
       )}
@@ -227,48 +268,58 @@ function AdminUniversities() {
             </thead>
 
             <tbody>
-              {universities.map((university, index) => (
-                <tr key={`${university.name}-${index}`}>
-                  <td>{index + 1}</td>
-
-                  <td>
-                    <div className="admin-university-name">
-                      <span className="admin-university-flag">
-                        {university.flag}
-                      </span>
-                      <span>{university.name}</span>
-                    </div>
-                  </td>
-
-                  <td>{university.country}</td>
-                  <td>{university.city}</td>
-
-                  <td>
-                    <div className="admin-university-fields">
-                      {university.fields?.map((field) => (
-                        <span key={field}>{field}</span>
-                      ))}
-                    </div>
-                  </td>
-
-                  <td>
-                    <button
-                      type="button"
-                      className="admin-delete-university"
-                      onClick={() => handleDeleteUniversity(index)}
-                    >
-                      Удалить
-                    </button>
-                  </td>
-                </tr>
-              ))}
-
-              {universities.length === 0 && (
+              {loading ? (
                 <tr>
-                  <td colSpan="6">
-                    Университетов пока нет.
-                  </td>
+                  <td colSpan="6">Загрузка университетов...</td>
                 </tr>
+              ) : (
+                <>
+                  {universities.map((university, index) => (
+                    <tr key={university.id}>
+                      <td>{index + 1}</td>
+
+                      <td>
+                        <div className="admin-university-name">
+                          <span className="admin-university-flag">
+                            {university.flag}
+                          </span>
+                          <span>{university.name}</span>
+                        </div>
+                      </td>
+
+                      <td>{university.country}</td>
+                      <td>{university.city}</td>
+
+                      <td>
+                        <div className="admin-university-fields">
+                          {university.fields?.map((field) => (
+                            <span key={field}>{field}</span>
+                          ))}
+                        </div>
+                      </td>
+
+                      <td>
+                        <button
+                          type="button"
+                          className="admin-delete-university"
+                          onClick={() =>
+                            handleDeleteUniversity(university)
+                          }
+                        >
+                          Удалить
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+
+                  {universities.length === 0 && (
+                    <tr>
+                      <td colSpan="6">
+                        Университетов пока нет.
+                      </td>
+                    </tr>
+                  )}
+                </>
               )}
             </tbody>
           </table>

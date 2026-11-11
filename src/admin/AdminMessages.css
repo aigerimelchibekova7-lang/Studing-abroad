@@ -193,3 +193,23 @@
   background: #fef2f2;
   overflow-wrap: anywhere;
 }
+
+.message-delete-btn {
+  padding: 8px 13px;
+  border: none;
+  border-radius: 7px;
+  background: #fee2e2;
+  color: #b91c1c;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.message-delete-btn:hover {
+  background: #fecaca;
+}
+
+.message-delete-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

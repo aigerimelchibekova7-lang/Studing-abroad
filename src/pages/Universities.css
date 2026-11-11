@@ -6,7 +6,6 @@
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* PAGE TITLE */
 .universities-page h1 {
   width: 100%;
   max-width: 1200px;
@@ -15,7 +14,6 @@
   color: var(--text-color);
 }
 
-/* COUNTRY FILTERS */
 .country-filters {
   width: 100%;
   max-width: 1200px;
@@ -46,13 +44,11 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
-/* SELECTED FILTER */
 .country-filters button:focus {
   background: #133845;
   color: white;
 }
 
-/* UNIVERSITIES GRID */
 .universities-grid {
   width: 100%;
   max-width: 1200px;
@@ -63,14 +59,12 @@
   gap: 25px;
 }
 
-/* CARD WRAPPER */
 .university-card-wrapper {
   position: relative;
   width: 100%;
   min-width: 0;
 }
 
-/* UNIVERSITY CARD */
 .university-card {
   width: 100%;
   position: relative;
@@ -93,7 +87,6 @@
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.13);
 }
 
-/* UNIVERSITY IMAGE */
 .university-image {
   position: relative;
   width: 100%;
@@ -108,7 +101,6 @@
   object-fit: cover;
 }
 
-/* COUNTRY BADGE */
 .country-badge {
   position: absolute;
   top: 15px;
@@ -121,7 +113,6 @@
   border: 1px solid var(--border-color);
 }
 
-/* UNIVERSITY INFORMATION */
 .university-info {
   padding: 23px;
   display: block;
@@ -130,7 +121,6 @@
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* CITY */
 .university-city {
   margin: 0 0 8px;
   color: var(--text-color);
@@ -138,7 +128,6 @@
   font-size: 13px;
 }
 
-/* UNIVERSITY NAME */
 .university-info h3 {
   margin: 0 0 12px;
   font-size: 21px;
@@ -146,7 +135,6 @@
   display: block;
 }
 
-/* DESCRIPTION */
 .university-description {
   color: var(--text-color);
   opacity: 0.75;
@@ -156,7 +144,6 @@
   margin: 0 0 15px;
 }
 
-/* UNIVERSITY TAGS */
 .university-tags {
   display: flex;
   flex-wrap: wrap;
@@ -172,7 +159,6 @@
   font-size: 11px;
 }
 
-/* DETAILS BUTTON */
 .university-info button {
   width: 100%;
   border: none;
@@ -193,7 +179,6 @@
   margin-left: 7px;
 }
 
-/* EXPENSES LIST */
 .expenses-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

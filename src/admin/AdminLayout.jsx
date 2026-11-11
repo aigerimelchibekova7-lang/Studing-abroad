@@ -1,13 +1,60 @@
-import { NavLink, Outlet } from "react-router-dom";
+
+import { useEffect, useState } from "react";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { supabase } from "../supabaseClient";
 import "./AdminLayout.css";
 
 function AdminLayout() {
+  const navigate = useNavigate();
+  const [checking, setChecking] = useState(true);
+
+  useEffect(() => {
+    let mounted = true;
+
+    async function checkSession() {
+      const { data, error } = await supabase.auth.getSession();
+
+      if (!mounted) return;
+
+      if (error || !data.session) {
+        navigate("/admin/login", { replace: true });
+      } else {
+        setChecking(false);
+      }
+    }
+
+    checkSession();
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (!session) {
+        navigate("/admin/login", { replace: true });
+      } else if (mounted) {
+        setChecking(false);
+      }
+    });
+
+    return () => {
+      mounted = false;
+      subscription.unsubscribe();
+    };
+  }, [navigate]);
+
+  async function handleLogout() {
+    await supabase.auth.signOut();
+    navigate("/admin/login", { replace: true });
+  }
+
+  if (checking) {
+    return <div style={{ padding: "40px" }}>Текшерилүүдө...</div>;
+  }
+
   return (
     <div className="admin-layout">
       <aside className="admin-sidebar">
         <div className="admin-logo">
           <div className="admin-logo-icon">E</div>
-
           <div>
             <h2>EDIVIA</h2>
             <span>ADMIN PANEL</span>
@@ -43,7 +90,6 @@ function AdminLayout() {
         <div className="sidebar-bottom">
           <div className="admin-profile">
             <div className="profile-avatar">E</div>
-
             <div>
               <strong>Администратор</strong>
               <span>EDIVIA Management</span>

@@ -5,7 +5,6 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* CONTAINER */
 .student-container {
   width: 100%;
   max-width: 1200px;
@@ -13,7 +12,6 @@
   padding: 0 20px;
 }
 
-/* SECTION HEADING */
 .heading {
   text-align: center;
   margin-bottom: 45px;
@@ -44,14 +42,12 @@
   opacity: 0.75;
 }
 
-/* STUDENT CARDS */
 .student-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 25px;
 }
 
-/* STORY CARD */
 .story-card {
   background-color: var(--card-color);
   color: var(--text-color);
@@ -71,7 +67,7 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* STUDENT IMAGE */
+
 .story-card img {
   width: 100%;
   height: 280px;
@@ -79,7 +75,6 @@
   display: block;
 }
 
-/* STORY CONTENT */
 .story {
   padding: 22px;
 }
@@ -90,7 +85,6 @@
   color: var(--text-color);
 }
 
-/* COUNTRY */
 .story-country {
   margin: 0 0 15px;
   color: #477789;
@@ -98,7 +92,6 @@
   font-weight: 600;
 }
 
-/* STORY DESCRIPTION */
 .story-text {
   margin: 0;
   color: var(--text-color);
@@ -134,7 +127,6 @@
   }
 }
 
-/* MOBILE — телефон */
 @media (max-width: 768px) {
   .student {
     padding: 45px 0;

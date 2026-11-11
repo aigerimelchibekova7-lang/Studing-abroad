@@ -210,18 +210,13 @@
   align-items: center;
   justify-content: center;
   gap: 5px;
-
   padding: 9px 12px;
-
   border: 1px solid rgba(229, 72, 100, 0.15);
   border-radius: 25px;
-
   background: #fff0f3;
   color: #e54864 !important;
-
   text-decoration: none;
   white-space: nowrap;
-
   font-size: 12px;
   font-weight: 600;
 }
