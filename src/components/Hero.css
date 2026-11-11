@@ -119,8 +119,7 @@
   }
 
   .image img {
-    width: 320px;
-    height: 380px;
+    display: none;
   }
 
   .stats {
@@ -194,13 +193,11 @@
   }
 
   .image img {
-    width: min(100%, 320px);
-    height: 350px;
+   display: none;
   }
 }
 
-/* КИЧИНЕКЕЙ ТЕЛЕФОН */
-@media (max-width: 400px) {
+@media (max-width: 360px) {
   .hero {
     padding: 30px 15px;
   }
@@ -231,6 +228,6 @@
   }
 
   .image img {
-    height: 300px;
+   display: none;
   }
 }

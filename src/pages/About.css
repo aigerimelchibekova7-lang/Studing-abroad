@@ -265,24 +265,28 @@
   transform: translateY(-2px);
 }
 
-@media (max-width: 1240px) {
+@media (max-width: 1024px) {
   .abouts,
   .why,
   .result,
   .about-cta {
     width: calc(100% - 40px);
   }
-
+  
   .about-hero {
     gap: 35px;
     padding: 45px 20px;
+    justify-content: center;
+    text-align: center;
+
   }
 
   .about-hero img {
-    width: 100%;
+    /* width: 100%;
     max-width: 450px;
     height: auto;
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 3 / 2; */
+    display: none;
   }
 
   .why-edivia {
@@ -306,7 +310,7 @@
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 768px) {
   .about-hero {
     min-height: auto;
     gap: 25px;
@@ -326,7 +330,8 @@
   }
 
   .about-hero img {
-    max-width: 100%;
+    /* max-width: 100%; */
+    display: none;
   }
 
   .why {
@@ -388,157 +393,15 @@
   }
 }
 
-@media (max-width: 600px) {
-  .abouts,
-  .why,
-  .result,
-  .about-cta {
-    width: calc(100% - 30px);
-  }
-
-  .about-hero {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 25px;
-    padding: 30px 0;
-  }
-
-  .about-hero > div {
-    width: 100%;
-  }
-
-  .about-hero span,
-  .why-intro span,
-  .results > span {
-    font-size: 12px;
-  }
-
-  .about-hero h1 {
-    font-size: 30px;
-    line-height: 1.2;
-    margin: 16px 0;
-    overflow-wrap: anywhere;
-  }
-
-  .about-hero p {
-    font-size: 14px;
-    line-height: 1.7;
-  }
-
-  .about-hero button {
-    width: 100%;
-    padding: 14px 20px;
-  }
-
-  .about-hero img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    border-radius: 20px;
-  }
-
-  .why-edivia {
-    margin: 10px 0;
-    padding: 25px 20px;
-    border-radius: 20px;
-  }
-
-  .why-intro h2 {
-    font-size: 26px;
-    line-height: 1.25;
-  }
-
-  .why-intro p {
-    font-size: 14px;
-    line-height: 1.7;
-  }
-
-  .advantags {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 22px;
-  }
-
-  .advantage-card {
-    padding: 0;
-  }
-
-  .advantage-card .icon {
-    width: 46px;
-    height: 46px;
-    font-size: 21px;
-    margin-bottom: 12px;
-  }
-
-  .advantag-card h3 {
-    font-size: 16px;
-  }
-
-  .advantag-card p {
-    font-size: 13px;
-    line-height: 1.7;
-  }
-
-  .results {
-    padding: 35px 0;
-  }
-
-  .results h2 {
-    font-size: 26px;
-    line-height: 1.3;
-    margin: 16px 0 25px;
-  }
-
-  .result-cards {
-    gap: 20px 10px;
-  }
-
-  .result-cards > div,
-  .result-cards > div:first-child {
-    padding: 8px 10px;
-  }
-
-  .result-cards strong {
-    font-size: 25px;
-    overflow-wrap: anywhere;
-  }
-
-  .result-cards p {
-    font-size: 12px;
-    line-height: 1.5;
-  }
-
-  .about-cta {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 20px;
-    margin: 10px auto 35px;
-    padding: 25px 20px;
-    border-radius: 20px;
-  }
-
-  .about-cta h2 {
-    font-size: 22px;
-    line-height: 1.3;
-  }
-
-  .about-cta p {
-    font-size: 13px;
-    line-height: 1.7;
-  }
-
-  .about-cta button {
-    width: 100%;
-    padding: 14px 20px;
-  }
-}
-
 @media (max-width: 360px) {
   .abouts,
   .why,
   .result,
   .about-cta {
     width: calc(100% - 20px);
+  }
+  .about-hero{
+    text-align: center;
   }
 
   .about-hero h1 {
@@ -559,6 +422,11 @@
   }
 
   .about-cta {
-    padding: 20px 15px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    gap: 25px;
   }
 }

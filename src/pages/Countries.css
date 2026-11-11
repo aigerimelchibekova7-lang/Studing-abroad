@@ -392,7 +392,7 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 360px) {
   .countries-hero {
     padding: 40px 15px 30px;
   }
