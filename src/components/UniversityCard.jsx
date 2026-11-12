@@ -143,13 +143,17 @@ const description =
   <p className="university-description">
     {description}
   </p>
-     <div className="university-tags">
-  {university.fields.map((field, index) => (
-    <span key={index}>
-      {fieldTranslations[field]?.[language] || field}
-    </span>
-  ))}
+ 
+<div className="university-tags">
+  {(Array.isArray(university.fields) ? university.fields : []).map(
+    (field, index) => (
+      <span key={`${field}-${index}`}>
+        {fieldTranslations[field]?.[language] || field}
+      </span>
+    )
+  )}
 </div>
+
      <button
   type="button"
   onClick={() => {
