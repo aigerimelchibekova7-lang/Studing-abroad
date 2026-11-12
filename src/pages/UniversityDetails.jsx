@@ -33,6 +33,8 @@ export default function UniversityDetails() {
     const loadUniversities = async () => {
       try {
         const data = await getUniversities();
+        console.log("Supabase университеттери:", data);
+        console.log("URL slug:", slug);
 
         if (isMounted) {
           setUniversities(data);
@@ -97,8 +99,12 @@ export default function UniversityDetails() {
   }, [slug, images.length]);
 
  
-if (loading) {
-  return null;
+   if (loading) {
+  return (
+    <main className="university-not-found">
+      <h2>Жүктөлүүдө...</h2>
+    </main>
+  );
 }
 
   // Ката чыккан учурда
