@@ -1,3 +1,4 @@
+
 import { supabase } from "../supabaseClient";
 
 export async function getUniversities() {
@@ -7,6 +8,7 @@ export async function getUniversities() {
     .order("id", { ascending: true });
 
   if (error) {
+    console.error("Supabase катасы:", error);
     throw error;
   }
 
