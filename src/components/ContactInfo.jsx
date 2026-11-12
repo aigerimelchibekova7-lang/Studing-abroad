@@ -1,6 +1,6 @@
 
 import ContactInfoItem from "./ContactInfoItem";
-
+// Биздин байланыш
 function ContactInfo({ t }) {
   return (
     <div className="contact-info">

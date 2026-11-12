@@ -1,4 +1,4 @@
-
+// ар бир өлкө жөнүндө маалыматты өзүнчө карточка түрүндө көрсөтөт
 import "./CountryCard.css";
 
 function CountryCard({

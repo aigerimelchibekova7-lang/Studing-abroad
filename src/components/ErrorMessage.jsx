@@ -1,5 +1,5 @@
 import "./ErrorMessage.css";
-
+// Ката чыкканын корсотот
 function ErrorMessage({ message }) {
   if (!message) return null;
 

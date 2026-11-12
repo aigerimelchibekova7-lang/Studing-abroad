@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-
+// Навигация көрсөтөт
 function Breadcrumbs({ items }) {
   return (
     <nav className="breadcrumbs" aria-label="Breadcrumb">

@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
-
+// EDIVIA долбооруңдагы сайттын жарык жана караңгы темасын башкаруу үчүн колдонулат
 const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {

@@ -2,7 +2,7 @@ import FormTextarea from "./FormTextarea";
 import FormInput from "./FormInput";
 import FormSelect from "./FormSelect";
 import FormFeedback from "./FormFeedback";
-
+// Контакт формасы
 function ContactForm({ t, loading, sent, error, handleSubmit }) {
 const countryOptions = [
   { value: "Саудовская Аравия", label: t.countries[0] },

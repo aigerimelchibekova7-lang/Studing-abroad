@@ -1,4 +1,4 @@
-
+// байланыш маалыматтарын көрсөтөт
 function ContactInfoItem({ icon, title, children }) {
   return (
     <div className="info-item">

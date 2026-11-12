@@ -1,4 +1,4 @@
-
+// Фильтр 
 function UniversityFilter({
   selectedCountry,
   setSelectedCountry,

@@ -1,4 +1,4 @@
-
+// Издөө
 function FormInput({
   label,
   type = "text",

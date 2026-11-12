@@ -1,7 +1,7 @@
 import React from "react";
 import "./Advantages.css";
 import { useLanguage } from "./LanguageContext";
-
+// Неге биз
 const Advantages = () => {
   const { t } = useLanguage();
 

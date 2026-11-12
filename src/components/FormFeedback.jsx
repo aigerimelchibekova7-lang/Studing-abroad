@@ -1,4 +1,4 @@
-
+// колдонуучуга форма жөнөтүлгөндөн кийин жыйынтыгын көрсөтүү
 function FormFeedback({ sent, error, successMessage }) {
   if (error) {
     return (

@@ -1,5 +1,5 @@
 import TuitionInfo from "./TuitionInfo";
-
+// Маалымат
 function UniversityInfo({ university, translatedUniversity, t }) {
   const info = [
     {

@@ -1,4 +1,4 @@
-
+// талаптар
 function RequirementsList({ requirements, t }) {
   return (
     <section className="university-requirements-section">

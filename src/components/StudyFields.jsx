@@ -1,4 +1,4 @@
-
+// Направления
 function StudyFields({ fields = [], t }) {
   const safeFields = Array.isArray(fields) ? fields : [];
 

@@ -1,4 +1,4 @@
-
+// университет жөнүндө кошумча маалыматтарды карточкалар түрүндө көрсөтүү.
 import TuitionInfo from "./TuitionInfo";
 
 function UniversityInfo({ university, translatedUniversity, t }) {

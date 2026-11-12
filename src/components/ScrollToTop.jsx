@@ -1,4 +1,4 @@
-
+// колдонуучу сайттын бир баракчасынан экинчи баракчасына өткөндө, экранды автоматтык түрдө жогору көтөрүү.
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 

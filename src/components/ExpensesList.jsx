@@ -1,4 +1,4 @@
-
+// Окуу акысы
 function ExpensesList({ expenses, t }) {
   return (
     <section className="university-expenses-section">

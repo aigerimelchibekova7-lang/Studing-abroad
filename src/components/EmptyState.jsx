@@ -1,5 +1,5 @@
 import "./EmptyState.css";
-
+// Универ табылбаса ушунтип чыгат
 function EmptyState({
   title = "Маалымат табылган жок",
   description = "Башкача издеп көрүңүз."

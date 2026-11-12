@@ -1,4 +1,4 @@
-
+// Тапшыргын келеби
 import { Link } from "react-router-dom";
 
 function UniversityCTA({ university, t }) {

@@ -1,4 +1,4 @@
-
+// Избранный 
 import { useEffect, useState } from "react";
 import { getFavorites, toggleFavorite } from "../utils/Favorites";
 import "./FavoriteButton.css";
