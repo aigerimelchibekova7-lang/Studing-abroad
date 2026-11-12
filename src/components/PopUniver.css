@@ -116,6 +116,24 @@
   transform: scale(1.08);
 }
 
+:root[data-theme="dark"] .country-card {
+  background-color: #1b2833;
+  color: #f1f5f9;
+  border-color: #344451;
+}
+
+:root[data-theme="dark"] .country-info {
+  background-color: #1b2833;
+}
+
+:root[data-theme="dark"] .country-info h3 {
+  color: #60a5fa;
+}
+
+:root[data-theme="dark"] .country-info p {
+  color: #f1f5f9;
+}
+
 @media (max-width: 1024px) {
   .popuniver {
     padding: 60px 0;
