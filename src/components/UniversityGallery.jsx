@@ -1,19 +1,23 @@
 
 function UniversityGallery({
-  images,
+  images = [],
   activeImage,
   setActiveImage,
   university,
   t,
 }) {
+  const safeImages = Array.isArray(images) ? images : [];
+
   return (
     <section className="university-gallery">
-      <img
-        key={images[activeImage]}
-        src={images[activeImage]}
-        alt={university.name}
-        className="university-gallery-image"
-      />
+      {safeImages.length > 0 && (
+        <img
+          key={safeImages[activeImage] || safeImages[0]}
+          src={safeImages[activeImage] || safeImages[0]}
+          alt={university.name}
+          className="university-gallery-image"
+        />
+      )}
 
       <div className="university-gallery-overlay">
         <span>
@@ -25,14 +29,15 @@ function UniversityGallery({
         <p>📍 {university.city}</p>
       </div>
 
-      {images.length > 1 && (
+      {safeImages.length > 1 && (
         <>
           <button
             className="gallery-arrow gallery-prev"
             onClick={() =>
               setActiveImage(
                 (current) =>
-                  (current - 1 + images.length) % images.length
+                  (current - 1 + safeImages.length) %
+                  safeImages.length
               )
             }
             aria-label={t.previousPhoto}
@@ -44,7 +49,8 @@ function UniversityGallery({
             className="gallery-arrow gallery-next"
             onClick={() =>
               setActiveImage(
-                (current) => (current + 1) % images.length
+                (current) =>
+                  (current + 1) % safeImages.length
               )
             }
             aria-label={t.nextPhoto}
@@ -53,7 +59,7 @@ function UniversityGallery({
           </button>
 
           <div className="gallery-dots">
-            {images.map((image, index) => (
+            {safeImages.map((image, index) => (
               <button
                 key={`${image}-${index}`}
                 className={`gallery-dot ${
