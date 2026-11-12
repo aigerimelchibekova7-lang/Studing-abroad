@@ -96,14 +96,10 @@ export default function UniversityDetails() {
     return () => clearInterval(timer);
   }, [slug, images.length]);
 
-  // Жүктөлүп жаткан учурда
-  if (loading) {
-    return (
-      <main className="university-not-found">
-        <h2>Университет жүктөлүүдө...</h2>
-      </main>
-    );
-  }
+ 
+if (loading) {
+  return null;
+}
 
   // Ката чыккан учурда
   if (error) {
